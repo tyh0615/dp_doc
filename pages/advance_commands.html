@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>⚙️ 命令行的使用 - DrissionPage 文档</title>
+<meta name="generator" content="drissionpage offline doc builder">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/search-index.js"></script>
+<script src="../assets/dp-ui.js"></script>
+</head>
+<body data-prefix="../">
+<div class="layout">
+<dp-sidebar active="advance_commands"></dp-sidebar>
+<div class="main">
+  <dp-topbar><span class="crumb" slot="crumb">进阶使用 / <b>⚙️ 命令行的使用</b></span></dp-topbar>
+  <div class="content">
+    <div class="article">
+      <article>
+<div class="theme-doc-markdown markdown"><header><h1>⚙️ 命令行的使用</h1></header>
+<br>
+<p>DrissionPage 提供一些便捷的命令行命令，用于基本设置，以取代有时需要的临时配置文件。</p>
+<p>命令行主命令为<code>dp</code>，形式为：</p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">dp 命令全称或缩写 &lt;参数&gt;</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-设置浏览器路径">✅️️ 设置浏览器路径<a href="#️️-设置浏览器路径" class="hash-link" aria-label="✅️️ 设置浏览器路径的直接链接" title="✅️️ 设置浏览器路径的直接链接">​</a></h2>
+<table><thead><tr><th style="text-align:center">全称</th><th style="text-align:center">缩写</th><th style="text-align:center">参数</th><th style="text-align:center">说明</th></tr></thead><tbody><tr><td style="text-align:center">--set-browser-path</td><td style="text-align:center">-p</td><td style="text-align:center">浏览器路径</td><td style="text-align:center">设置配置文件中的浏览器路径</td></tr></tbody></table>
+<p><strong>示例：</strong></p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"># 完整写法</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">dp --set-browser-path "D:\chrome\Chrome.exe"</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"># 简略写法</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">dp -p "D:\chrome\Chrome.exe"</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-设置用户数据路径">✅️️ 设置用户数据路径<a href="#️️-设置用户数据路径" class="hash-link" aria-label="✅️️ 设置用户数据路径的直接链接" title="✅️️ 设置用户数据路径的直接链接">​</a></h2>
+<table><thead><tr><th style="text-align:center">全称</th><th style="text-align:center">缩写</th><th style="text-align:center">参数</th><th style="text-align:center">说明</th></tr></thead><tbody><tr><td style="text-align:center">--set-user-path</td><td style="text-align:center">-u</td><td style="text-align:center">用户数据文件夹路径</td><td style="text-align:center">设置配置文件中的用户数据路径</td></tr></tbody></table>
+<p><strong>示例：</strong></p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"># 完整写法</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">dp --set-user-path D:\chrome\user_data</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"># 简略写法</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">dp -u D:\chrome\user_data</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+
+<br>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-复制默认-ini-��文件到当前路径">✅️️ 复制默认 ini 文件到当前路径<a href="#️️-复制默认-ini-文件到当前路径" class="hash-link" aria-label="✅️️ 复制默认 ini 文件到当前路径的直接链接" title="✅️️ 复制默认 ini 文件到当前路径的直接链接">​</a></h2>
+<table><thead><tr><th style="text-align:center">全称</th><th style="text-align:center">缩写</th><th style="text-align:center">参数</th><th style="text-align:center">说明</th></tr></thead><tbody><tr><td style="text-align:center">--configs-to-here</td><td style="text-align:center">-c</td><td style="text-align:center">无</td><td style="text-align:center">复制默认配置文件到当前路径</td></tr></tbody></table>
+<p><strong>示例：</strong></p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"># 完整写法</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">dp --configs-to-here</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"># 简略写法</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">dp -c</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-启动浏览器">✅️️ 启动浏览器<a href="#️️-启动浏览器" class="hash-link" aria-label="✅️️ 启动浏览器的直接链接" title="✅️️ 启动浏览器的直接链接">​</a></h2>
+<p>此命令用于启动浏览器，等待程序接管。</p>
+<table><thead><tr><th style="text-align:center">全称</th><th style="text-align:center">缩写</th><th style="text-align:center">参数</th><th style="text-align:center">说明</th></tr></thead><tbody><tr><td style="text-align:center">--launch-browser</td><td style="text-align:center">-l</td><td style="text-align:center">端口号</td><td style="text-align:center">启动浏览器，传入端口号，0表示用配置文件中的值</td></tr></tbody></table>
+<p><strong>示例：</strong></p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"># 完整写法</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">dp --launch-browser 9333</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"># 简略写法</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">dp -l 0</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div></div>
+      </article>
+      <dp-pager><a class="pager-link prev" slot="prev" href="advance_settings.html"><span class="dir">上一页</span>⚙️ 全局设置</a><a class="pager-link next" slot="next" href="advance_errors.html"><span class="dir">下一页</span>⚙️ 异常的使用</a></dp-pager>
+    </div>
+    <dp-toc>
+<ul class="toc-list"><li class="toc-h2"><a href="#️️-设置浏览器路径">✅️️ 设置浏览器路径​</a></li><li class="toc-h2"><a href="#️️-设置用户数据路径">✅️️ 设置用户数据路径​</a></li><li class="toc-h2"><a href="#️️-复制默认-ini-��文件到当前路径">✅️️ 复制默认 ini 文件到当前路径​</a></li><li class="toc-h2"><a href="#️️-启动浏览器">✅️️ 启动浏览器​</a></li></ul>
+    </dp-toc>
+  </div>
+</div>
+</div>
+</body>
+</html>

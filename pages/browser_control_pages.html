@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🛰️ Page 对象 - DrissionPage 文档</title>
+<meta name="generator" content="drissionpage offline doc builder">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/search-index.js"></script>
+<script src="../assets/dp-ui.js"></script>
+</head>
+<body data-prefix="../">
+<div class="layout">
+<dp-sidebar active="browser_control_pages"></dp-sidebar>
+<div class="main">
+  <dp-topbar><span class="crumb" slot="crumb">浏览器控制 / <b>🛰️ Page 对象</b></span></dp-topbar>
+  <div class="content">
+    <div class="article">
+      <article>
+<div class="theme-doc-markdown markdown"><header><h1>🛰️ Page 对象</h1></header>
+<br>
+<p><code>ChromiumPage</code>和<code>WebPage</code>是 4.1 之前用于连接和控制浏览器的对象。</p>
+<p>4.1 这些功能由<code>Chromium</code>实现，但<code>ChromiumPage</code>和<code>WebPage</code>仍能正常使用。</p>
+<p>对比<code>Chromium</code>，<code>ChromiumPage</code>和<code>WebPage</code>在连接浏览器时可以少写一行代码，但在多标签页操作的时候容易造成混乱。</p>
+<p>更详细的用法可以看旧版文档。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-chromiumpage">✅️️ <code>ChromiumPage</code><a href="#️️-chromiumpage" class="hash-link" aria-label="️️-chromiumpage的直接链接" title="️️-chromiumpage的直接链接">​</a></h2>
+<p><code>ChromiumPage</code>把浏览器管理功能和一个标签页（默认接管时激活那个）控制功能整合在一起。</p>
+<p>可看作浏览器对象，但同时控制了一个标签页。</p>
+<p>如果项目只需要使用单标签页，用<code>ChromiumPage</code>会比较方便。</p>
+<p><code>ChromiumPage</code>创建的标签页对象为<code>ChromiumTab</code>，没有切换模式功能。</p>
+<table><thead><tr><th style="text-align:center">初始化参数</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>addr_or_opts</code></td><td style="text-align:center"><code>str</code><br><code>int</code><br><code>ChromiumOptions</code><br></td><td style="text-align:center"><code>None</code></td><td>浏览器启动配置或接管信息。<br>传入 'ip: port' 字符串、端口数字或<code>ChromiumOptions</code>对象时按配置启动或接管浏览器；<br>为<code>None</code>时使用配置文件配置启动浏览器</td></tr><tr><td style="text-align:center"><code>tab_id</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>None</code></td><td>要控制的标签页 id，不指定默认为激活的</td></tr></tbody></table>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> ChromiumPage</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page </span><span class="token operator">=</span><span class="token plain"> ChromiumPage</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">get</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'http://DrissionPage.cn'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">print</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">title</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+
+<br>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-webpage">✅️️ <code>WebPage</code><a href="#️️-webpage" class="hash-link" aria-label="️️-webpage的直接链接" title="️️-webpage的直接链接">​</a></h2>
+<p><code>WebPage</code>覆盖了<code>ChromiumPage</code>所有功能，并且增加了切换模式功能，创建的标签页对象为<code>MixTab</code>。</p>
+<table><thead><tr><th style="text-align:center">初始化参数</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>mode</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>'d'</code></td><td>运行模式，可选<code>'d'</code>或<code>'s'</code></td></tr><tr><td style="text-align:center"><code>chromium_options</code></td><td style="text-align:center"><code>bool</code><br><code>ChromiumOptions</code><br></td><td style="text-align:center"><code>None</code></td><td><code>ChromiumOptions</code>对象，传入<code>None</code>时从默认 ini 文件读取，传入<code>False</code>时不读取 ini 文件，使用默认配置</td></tr><tr><td style="text-align:center"><code>session_or_options</code></td><td style="text-align:center"><code>SessionOptions</code><br><code>None</code><br><code>False</code></td><td style="text-align:center"><code>None</code></td><td><code>Session</code>对象或<code>SessionOptions</code>对象，传入<code>None</code>时从默认 ini 文件读取，传入<code>False</code>时不读取 ini 文件，使用默认配置</td></tr></tbody></table>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> WebPage</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page </span><span class="token operator">=</span><span class="token plain"> WebPage</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">get</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'http://DrissionPage.cn'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">print</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">title</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">change_mode</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">print</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">title</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div></div>
+      </article>
+      <dp-pager><a class="pager-link prev" slot="prev" href="browser_control_upload.html"><span class="dir">上一页</span>🛰️ 上传文件</a><a class="pager-link next" slot="next" href="SessionPage_intro.html"><span class="dir">下一页</span>🛩️ 概述</a></dp-pager>
+    </div>
+    <dp-toc>
+<ul class="toc-list"><li class="toc-h2"><a href="#️️-chromiumpage">✅️️ ChromiumPage​</a></li><li class="toc-h2"><a href="#️️-webpage">✅️️ WebPage​</a></li></ul>
+    </dp-toc>
+  </div>
+</div>
+</div>
+</body>
+</html>

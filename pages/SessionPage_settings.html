@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🛩️ 页面设置 - DrissionPage 文档</title>
+<meta name="generator" content="drissionpage offline doc builder">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/search-index.js"></script>
+<script src="../assets/dp-ui.js"></script>
+</head>
+<body data-prefix="../">
+<div class="layout">
+<dp-sidebar active="SessionPage_settings"></dp-sidebar>
+<div class="main">
+  <dp-topbar><span class="crumb" slot="crumb">SessionPage / <b>🛩️ 页面设置</b></span></dp-topbar>
+  <div class="content">
+    <div class="article">
+      <article>
+<div class="theme-doc-markdown markdown"><header><h1>🛩️ 页面设置</h1></header>
+<br>
+<p>本节介绍<code>SessionPage</code>运行参数设置。</p>
+<p>这些设置是全局参数，设置后每次请求都会使用它们。</p>
+<p><strong>示例：</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> SessionPage</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page </span><span class="token operator">=</span><span class="token plain"> SessionPage</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token builtin" style="color: rgb(189, 147, 249);">set</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">cookies</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">[</span><span class="token punctuation" style="color: rgb(248, 248, 242);">{</span><span class="token string" style="color: rgb(255, 121, 198);">'name'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">:</span><span class="token plain"> </span><span class="token string" style="color: rgb(255, 121, 198);">'a'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">,</span><span class="token plain"> </span><span class="token string" style="color: rgb(255, 121, 198);">'value'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">:</span><span class="token plain"> </span><span class="token string" style="color: rgb(255, 121, 198);">'1'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">}</span><span class="token punctuation" style="color: rgb(248, 248, 242);">,</span><span class="token plain"> </span><span class="token punctuation" style="color: rgb(248, 248, 242);">{</span><span class="token string" style="color: rgb(255, 121, 198);">'name'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">:</span><span class="token plain"> </span><span class="token string" style="color: rgb(255, 121, 198);">'b'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">,</span><span class="token plain"> </span><span class="token string" style="color: rgb(255, 121, 198);">'value'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">:</span><span class="token plain"> </span><span class="token string" style="color: rgb(255, 121, 198);">'2'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">}</span><span class="token punctuation" style="color: rgb(248, 248, 242);">]</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setretry_times">✅️️ <code>set.retry_times()</code><a href="#️️-setretry_times" class="hash-link" aria-label="️️-setretry_times的直接链接" title="️️-setretry_times的直接链接">​</a></h2>
+<p>此方法用于设置连接失败时重连次数。</p>
+<table><thead><tr><th>参数名称</th><th>类型</th><th>默认值</th><th>说明</th></tr></thead><tbody><tr><td><code>times</code></td><td><code>int</code></td><td>必填</td><td>次数</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setretry_interval">✅️️ <code>set.retry_interval()</code><a href="#️️-setretry_interval" class="hash-link" aria-label="️️-setretry_interval的直接链接" title="️️-setretry_interval的直接链接">​</a></h2>
+<p>此方法用于设置连接失败时重连间隔。</p>
+<table><thead><tr><th>参数名称</th><th>类型</th><th>默认值</th><th>说明</th></tr></thead><tbody><tr><td><code>interval</code></td><td><code>float</code></td><td>必填</td><td>秒数</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-settimeout">✅️️ <code>set.timeout()</code><a href="#️️-settimeout" class="hash-link" aria-label="️️-settimeout的直接链接" title="️️-settimeout的直接链接">​</a></h2>
+<p>此方法用于设置连接超时时间（秒）。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>second</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center">必填</td><td>秒数</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<p><strong>示例：</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token builtin" style="color: rgb(189, 147, 249);">set</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">timeout</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token number">20</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setencoding">✅️️ <code>set.encoding()</code><a href="#️️-setencoding" class="hash-link" aria-label="️️-setencoding的直接链接" title="️️-setencoding的直接链接">​</a></h2>
+<p>此方法用于设置网页编码。</p>
+<p>默认情况下，程序会自动从 headers、页面上获取编码，但总有些奇葩网页的编码不准确。这时候可以主动设置编码。</p>
+<p>可以针对已获取的<code>Rsponse</code>对象设置，或作为整体设置对之后的连接都有效。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>encoding</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center">必填</td><td>编码名称，如果要取消之前的设置，传入<code>None</code></td></tr><tr><td style="text-align:center"><code>set_all</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否设置对象参数，为<code>False</code>则只设置当前<code>Response</code>对象</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setcookies">✅️️ <code>set.cookies()</code><a href="#️️-setcookies" class="hash-link" aria-label="️️-setcookies的直接链接" title="️️-setcookies的直接链接">​</a></h2>
+<p>此方法用于设置一个或多个 cookie。</p>
+<p>设置一个 cookie 支持的格式：</p>
+<ul>
+<li><code>Cookie</code>：单个<code>Cookie</code>对象</li>
+<li><code>str</code>：<code>'name=value; domain=****; ...'</code>或<code>'name=****; value=****; domain=****; ...'</code>格式，只支持用<code>';'</code>分隔</li>
+<li><code>dict</code>：<code>{'name': '****', 'value': '****', 'domain': '****', ...}</code>或<code>{name: value, 'domain': '****', ...}</code>格式</li>
+</ul>
+<p>设置多个 cookie 支持的格式：</p>
+<ul>
+<li><code>list</code>或<code>tuple</code>：上面几种形式的单个 cookie 放到列表中传入即可</li>
+<li><code>dict</code>：<code>{name1: value1, name2: value2, ..., 'domain': '****', ...}</code>格式</li>
+<li><code>str</code>：<code>'name1=value1; name2=value2; ... domain=****; ...'</code>格式，多个 cookie 之间只能用<code>';'</code>分隔</li>
+<li><code>CookieJar</code>：单个<code>CookieJar</code>对象</li>
+</ul>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>cookies</code></td><td style="text-align:center"><code>Cookie</code><br><code>CookieJar</code><br><code>list</code><br><code>tuple</code><br><code>str</code><br><code>dict</code></td><td style="text-align:center">必填</td><td>cookies 信息</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+
+<br>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setcookiesclear">✅️️ <code>set.cookies.clear()</code><a href="#️️-setcookiesclear" class="hash-link" aria-label="️️-setcookiesclear的直接链接" title="️️-setcookiesclear的直接链接">​</a></h2>
+<p>此方法用于清除所有 cookie。</p>
+<p><strong>参数：</strong> 无</p>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setcookiesremove">✅️️ <code>set.cookies.remove()</code><a href="#️️-setcookiesremove" class="hash-link" aria-label="️️-setcookiesremove的直接链接" title="️️-setcookiesremove的直接链接">​</a></h2>
+<p>此方法用于删除一个 cookie。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>name</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center">必填</td><td>cookie 的 name 字段</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setheaders">✅️️ <code>set.headers()</code><a href="#️️-setheaders" class="hash-link" aria-label="️️-setheaders的直接链接" title="️️-setheaders的直接链接">​</a></h2>
+<p>此方法用于设置 headers，会取代已有 headers。</p>
+<p>headers 可以是<code>dict</code>格式的，也可以是文本格式。</p>
+<p>文本格式不同字段用<code>\n</code>分隔，字段 key 和 value 用<code>': '</code>分隔，即从浏览器直接复制的格式。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>headers</code></td><td style="text-align:center"><code>dict</code><br><code>str</code></td><td style="text-align:center">必填</td><td>headers 信息</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setheader">✅️️ <code>set.header()</code><a href="#️️-setheader" class="hash-link" aria-label="️️-setheader的直接链接" title="️️-setheader的直接链接">​</a></h2>
+<p>此方法用于设置 headers 中一个项。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>name</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center">必填</td><td>设置名称</td></tr><tr><td style="text-align:center"><code>value</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center">必填</td><td>设置值</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setuser_agent">✅️️ <code>set.user_agent()</code><a href="#️️-setuser_agent" class="hash-link" aria-label="️️-setuser_agent的直接链接" title="️️-setuser_agent的直接链接">​</a></h2>
+<p>此方法用于设置 user_agent。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>ua</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center">必填</td><td>user_agent 信息</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setproxies">✅️️ <code>set.proxies()</code><a href="#️️-setproxies" class="hash-link" aria-label="️️-setproxies的直接链接" title="️️-setproxies的直接链接">​</a></h2>
+<p>此方法用于设置代理 ip。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>http</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>None</code></td><td>http 代理地址</td></tr><tr><td style="text-align:center"><code>https</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>None</code></td><td>https 代理地址</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setauth">✅️️ <code>set.auth()</code><a href="#️️-setauth" class="hash-link" aria-label="️️-setauth的直接链接" title="️️-setauth的直接链接">​</a></h2>
+<p>此方法用于设置认证元组或对象。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>auth</code></td><td style="text-align:center"><code>Tuple[str, str]</code><br><code>HTTPBasicAuth</code></td><td style="text-align:center">必填</td><td>认证元组或对象</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-sethooks">✅️️ <code>set.hooks()</code><a href="#️️-sethooks" class="hash-link" aria-label="️️-sethooks的直接链接" title="️️-sethooks的直接链接">​</a></h2>
+<p>此方法用于设置回调方法。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>hooks</code></td><td style="text-align:center"><code>dict</code></td><td style="text-align:center">必填</td><td>回调方法</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setparams">✅️️ <code>set.params()</code><a href="#️️-setparams" class="hash-link" aria-label="️️-setparams的直接链接" title="️️-setparams的直接链接">​</a></h2>
+<p>此方法用于设置查询参数字典。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>params</code></td><td style="text-align:center"><code>dict</code></td><td style="text-align:center">必填</td><td>查询参数字典</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setverify">✅️️ <code>set.verify()</code><a href="#️️-setverify" class="hash-link" aria-label="️️-setverify的直接链接" title="️️-setverify的直接链接">​</a></h2>
+<p>此方法用于设置是否验证SSL证书。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>on_off</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center">必填</td><td><code>bool</code>表示开或关</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setcert">✅️️ <code>set.cert()</code><a href="#️️-setcert" class="hash-link" aria-label="️️-setcert的直接链接" title="️️-setcert的直接链接">​</a></h2>
+<p>此方法用于设置SSL客户端证书。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>cert</code></td><td style="text-align:center"><code>str</code><br><code>Tuple[str, str]</code></td><td style="text-align:center">必填</td><td>SSL客户端证书文件的路径(.pem格式)，或(‘cert’, ‘key’)元组</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setstream">✅️️ <code>set.stream()</code><a href="#️️-setstream" class="hash-link" aria-label="️️-setstream的直接链接" title="️️-setstream的直接链接">​</a></h2>
+<p>此方法用于设置是否使用流式响应内容。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>on_off</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center">必填</td><td><code>bool</code>表示开或关</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-settrust_env">✅️️ <code>set.trust_env()</code><a href="#️️-settrust_env" class="hash-link" aria-label="️️-settrust_env的直接链接" title="️️-settrust_env的直接链接">​</a></h2>
+<p>此方法用于设置是否信任环境。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>on_off</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center">必填</td><td><code>bool</code>表示开或关</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setmax_redirects">✅️️ <code>set.max_redirects()</code><a href="#️️-setmax_redirects" class="hash-link" aria-label="️️-setmax_redirects的直接链接" title="️️-setmax_redirects的直接链接">​</a></h2>
+<p>此方法用于设置连接最大重定向次数。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center">``times</td><td style="text-align:center"><code>int</code></td><td style="text-align:center">必填</td><td>最大重定向次数</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-setadd_adapter">✅️️ <code>set.add_adapter()</code><a href="#️️-setadd_adapter" class="hash-link" aria-label="️️-setadd_adapter的直接链接" title="️️-setadd_adapter的直接链接">​</a></h2>
+<p>此方法用于添加适配器。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>url</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center">必填</td><td>适配器对应url</td></tr><tr><td style="text-align:center"><code>adapter</code></td><td style="text-align:center"><code>HTTPAdapter</code></td><td style="text-align:center">必填</td><td>适配器对象</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-close">✅️️ <code>close()</code><a href="#️️-close" class="hash-link" aria-label="️️-close的直接链接" title="️️-close的直接链接">​</a></h2>
+<p>此方法用于关闭连接。</p>
+<p><strong>参数：</strong> 无</p>
+<p><strong>返回：</strong><code>None</code></p>
+<hr></div>
+      </article>
+      <dp-pager><a class="pager-link prev" slot="prev" href="SessionPage_get_ele_info.html"><span class="dir">上一页</span>🛩️ 获取元素信息</a><a class="pager-link next" slot="next" href="SessionPage_session_opt.html"><span class="dir">下一页</span>🛩️ 启动配置</a></dp-pager>
+    </div>
+    <dp-toc>
+<ul class="toc-list"><li class="toc-h2"><a href="#️️-setretry_times">✅️️ set.retry_times()​</a></li><li class="toc-h2"><a href="#️️-setretry_interval">✅️️ set.retry_interval()​</a></li><li class="toc-h2"><a href="#️️-settimeout">✅️️ set.timeout()​</a></li><li class="toc-h2"><a href="#️️-setencoding">✅️️ set.encoding()​</a></li><li class="toc-h2"><a href="#️️-setcookies">✅️️ set.cookies()​</a></li><li class="toc-h2"><a href="#️️-setcookiesclear">✅️️ set.cookies.clear()​</a></li><li class="toc-h2"><a href="#️️-setcookiesremove">✅️️ set.cookies.remove()​</a></li><li class="toc-h2"><a href="#️️-setheaders">✅️️ set.headers()​</a></li><li class="toc-h2"><a href="#️️-setheader">✅️️ set.header()​</a></li><li class="toc-h2"><a href="#️️-setuser_agent">✅️️ set.user_agent()​</a></li><li class="toc-h2"><a href="#️️-setproxies">✅️️ set.proxies()​</a></li><li class="toc-h2"><a href="#️️-setauth">✅️️ set.auth()​</a></li><li class="toc-h2"><a href="#️️-sethooks">✅️️ set.hooks()​</a></li><li class="toc-h2"><a href="#️️-setparams">✅️️ set.params()​</a></li><li class="toc-h2"><a href="#️️-setverify">✅️️ set.verify()​</a></li><li class="toc-h2"><a href="#️️-setcert">✅️️ set.cert()​</a></li><li class="toc-h2"><a href="#️️-setstream">✅️️ set.stream()​</a></li><li class="toc-h2"><a href="#️️-settrust_env">✅️️ set.trust_env()​</a></li><li class="toc-h2"><a href="#️️-setmax_redirects">✅️️ set.max_redirects()​</a></li><li class="toc-h2"><a href="#️️-setadd_adapter">✅️️ set.add_adapter()​</a></li><li class="toc-h2"><a href="#️️-close">✅️️ close()​</a></li></ul>
+    </dp-toc>
+  </div>
+</div>
+</div>
+</body>
+</html>

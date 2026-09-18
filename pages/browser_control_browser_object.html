@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🛰️ 浏览器对象 - DrissionPage 文档</title>
+<meta name="generator" content="drissionpage offline doc builder">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/search-index.js"></script>
+<script src="../assets/dp-ui.js"></script>
+</head>
+<body data-prefix="../">
+<div class="layout">
+<dp-sidebar active="browser_control_browser_object"></dp-sidebar>
+<div class="main">
+  <dp-topbar><span class="crumb" slot="crumb">浏览器控制 / <b>🛰️ 浏览器对象</b></span></dp-topbar>
+  <div class="content">
+    <div class="article">
+      <article>
+<div class="theme-doc-markdown markdown"><header><h1>🛰️ 浏览器对象</h1></header>
+<br>
+<p>我们已经了解如何创建浏览器对象，本节介绍浏览器对象的功能。</p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class=""><span class=""><svg width="1rem" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>说明</div><div class=""><p>文中的 “Tab 对象” 是<code>ChromiumTab</code>和<code>MixTab</code>的统称。</p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-获取标签页对象或信息">✅️️ 获取标签页对象或信息<a href="#️️-获取标签页对象或信息" class="hash-link" aria-label="✅️️ 获取标签页对象或信息的直接链接" title="✅️️ 获取标签页对象或信息的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-get_tab">📌 <code>get_tab()</code><a href="#-get_tab" class="hash-link" aria-label="-get_tab的直接链接" title="-get_tab的直接链接">​</a></h3>
+<p>此方法用于获取一个标签页对象或它的 id。</p>
+<p><code>id_or_num</code>不为<code>None</code>时，获取<code>id_or_num</code>指定的标签页。后面几个参数无效。</p>
+<p><code>id_or_num</code>为<code>None</code>时，根据后面几个参数指定的条件查找标签页（与关系）。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>id_or_num</code></td><td style="text-align:center"><code>str</code><br><code>int</code></td><td style="text-align:center"><code>None</code></td><td>要获取的标签页 id 或序号，序号从<code>1</code>开始，可传入负数获取倒数第几个，不是视觉排列顺序，而是激活顺序</td></tr><tr><td style="text-align:center"><code>title</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>None</code></td><td>要匹配 title 的文本，模糊匹配，为<code>None</code>则匹配所有</td></tr><tr><td style="text-align:center"><code>url</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>None</code></td><td>要匹配 url 的文本，模糊匹配，为<code>None</code>则匹配所有</td></tr><tr><td style="text-align:center"><code>tab_type</code></td><td style="text-align:center"><code>str</code><br><code>list</code><br><code>tuple</code></td><td style="text-align:center"><code>'page'</code></td><td>标签页类型，可用列表输入多个，如<code>'page'</code>、<code>'iframe'</code>等，为<code>None</code>则匹配所有</td></tr><tr><td style="text-align:center"><code>as_id</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>是否返回标签页 id 而不是标签页对象</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>MixTab</code></td><td><code>as_id</code>为<code>False</code>时返回获取到的标签页对象</td></tr><tr><td style="text-align:center"><code>str</code></td><td><code>as_id</code>为<code>True</code>时返回获取到的标签页的 id</td></tr></tbody></table>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> Chromium</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">browser </span><span class="token operator">=</span><span class="token plain"> Chromium</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">tab </span><span class="token operator">=</span><span class="token plain"> browser</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">get_tab</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-get_tabs">📌 <code>get_tabs()</code><a href="#-get_tabs" class="hash-link" aria-label="-get_tabs的直接链接" title="-get_tabs的直接链接">​</a></h3>
+<p>此方法用于获取多个符合条件的<code>MixTab</code>对象或它们的 id组成的列表。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>title</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>None</code></td><td>要匹配 title 的文本，模糊匹配，为<code>None</code>则匹配所有</td></tr><tr><td style="text-align:center"><code>url</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>None</code></td><td>要匹配 url 的文本，模糊匹配，为<code>None</code>则匹配所有</td></tr><tr><td style="text-align:center"><code>tab_type</code></td><td style="text-align:center"><code>str</code><br><code>list</code><br><code>tuple</code></td><td style="text-align:center"><code>'page'</code></td><td>标签页类型，可用列表输入多个，如<code>'page'</code>、<code>'iframe'</code>等，为<code>None</code>则匹配所有</td></tr><tr><td style="text-align:center"><code>as_id</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>是否返回标签页 id 而不是标签页对象</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>List[MixTab]</code></td><td><code>as_id</code>为<code>False</code>时返回获取到的标签页对象组成的列表</td></tr><tr><td style="text-align:center"><code>List[str]</code></td><td><code>as_id</code>为<code>True</code>时返回获取到的标签页的 id 组成的列表</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-latest_tab">📌 <code>latest_tab</code><a href="#-latest_tab" class="hash-link" aria-label="-latest_tab的直接链接" title="-latest_tab的直接链接">​</a></h3>
+<p>此属性返回最新的标签页对象或 id。</p>
+<ul>
+<li>控制本地浏览器时，返回最后激活的标签页</li>
+<li>控制远程浏览器时，返回最后创建的标签页</li>
+</ul>
+<p>如果关闭单例模式，即当<code>Settings.singleton_tab_obj</code>为<code>False</code>时，返回标签页的 id。</p>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>MixTab</code></td><td>单例模式时返回标签页对象</td></tr><tr><td style="text-align:center"><code>str</code></td><td>非单例模式时返回标签页 id</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-tabs_count">📌 <code>tabs_count</code><a href="#-tabs_count" class="hash-link" aria-label="-tabs_count的直接链接" title="-tabs_count的直接链接">​</a></h3>
+<p>此属性返回标签页数量，只统计普通标签页（即<code>'page'</code>、<code>'webview'</code>类型）。</p>
+<p><strong>类型：</strong><code>int</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-tab_ids">📌 <code>tab_ids</code><a href="#-tab_ids" class="hash-link" aria-label="-tab_ids的直接链接" title="-tab_ids的直接链接">​</a></h3>
+<p>此属性返回所有标签页 id 组成的列表，只统计普通标签页（即<code>'page'</code>、<code>'webview'</code>类型）。</p>
+<p><strong>类型：</strong><code>List[str]</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-标签页操作">✅️️ 标签页操作<a href="#️️-标签页操作" class="hash-link" aria-label="✅️️ 标签页操作的直接链接" title="✅️️ 标签页操作的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-new_tab">📌 <code>new_tab()</code><a href="#-new_tab" class="hash-link" aria-label="-new_tab的直接链接" title="-new_tab的直接链接">​</a></h3>
+<p>此方法用于新建标签页，并返回标签页对象。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>url</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>None</code></td><td>新标签页跳转到的网址，为<code>None</code>时新建空标签页</td></tr><tr><td style="text-align:center"><code>new_window</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>是否在新窗口打开标签页，隐身模式下无效</td></tr><tr><td style="text-align:center"><code>background</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>是否不激活新标签页，隐身模式和访客模式及<code>new_window</code>为<code>True</code>时无效</td></tr><tr><td style="text-align:center"><code>new_context</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>是否创建独立环境，隐身模式和访客模式下无效</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>MixTab</code></td><td>标签页对象</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-activate_tab">📌 <code>activate_tab()</code><a href="#-activate_tab" class="hash-link" aria-label="-activate_tab的直接链接" title="-activate_tab的直接链接">​</a></h3>
+<p>此方法用于使一个标签页显示到前端。可传入 Tab 对象、标签页 id、标签页序号。</p>
+<p>注意标签页序号不是视觉顺序，而是激活顺序。</p>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class=""><span class=""><svg width="1rem" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>说明</div><div class=""><p>标签页没有焦点的概念，多个标签页可以并行操作，这个方法不会对所谓焦点产生什么影响。</p></div></div>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>id_ind_tab</code></td><td style="text-align:center"><code>str</code><br><code>int</code><br><code>ChromiumTab</code><br><code>MixTab</code></td><td style="text-align:center">必填</td><td>标签页 id（<code>str</code>）、Tab 对象或标签页序号（<code>int</code>），序号从<code>1</code>开始</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-close_tabs">📌 <code>close_tabs()</code><a href="#-close_tabs" class="hash-link" aria-label="-close_tabs的直接链接" title="-close_tabs的直�接链接">​</a></h3>
+<p>此方法用于关闭标签页。可指定多个，可关闭指定标签页以外的。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>tabs_or_ids</code></td><td style="text-align:center"><code>str</code><br><code>ChromiumTab</code><br><code>MixTab</code><br><code>List|Tuple[ChromiumTab|MixTab|str]</code></td><td style="text-align:center">必填</td><td>指定的标签页对象或 id，可用列表或元组传入多个</td></tr><tr><td style="text-align:center"><code>others</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>是否关闭指定标签页之外的</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-单例模式说明">📌 单例模式说明<a href="#-单例模式说明" class="hash-link" aria-label="📌 单例模式说明的直接链接" title="📌 单例模式说明的直接链接">​</a></h3>
+<p>默认设置下，一个标签页只有一个 Tab 对象。</p>
+<p>对同一个标签页反复使用<code>get_tab()</code>获取到的是同一个对象。</p>
+<p>如上文所述，<code>latest_tab</code>获取的也是曾经生成过的 Tab 对象。</p>
+<p>如果需要多个 Tab 对象共同管理一个标签页，可关闭单例模式：</p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">common </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> Settings</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">Settings</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">set_singleton_tab_obj</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token boolean">False</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<p>关闭后，每次<code>get_tab()</code>都会创建新的 Tab 对象，<code>latest_tab</code>改成返回 Tab 对象的 id。</p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> Chromium</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">common </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> Settings</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">Settings</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">set_singleton_tab_obj</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token boolean">False</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">browser </span><span class="token operator">=</span><span class="token plain"> Chromium</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">tab1 </span><span class="token operator">=</span><span class="token plain"> browser</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">get_tab</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">tab2 </span><span class="token operator">=</span><span class="token plain"> browser</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">get_tab</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">print</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">tab1</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">title</span><span class="token punctuation" style="color: rgb(248, 248, 242);">,</span><span class="token plain"> </span><span class="token builtin" style="color: rgb(189, 147, 249);">id</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">tab1</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">print</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">tab2</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">title</span><span class="token punctuation" style="color: rgb(248, 248, 242);">,</span><span class="token plain"> </span><span class="token builtin" style="color: rgb(189, 147, 249);">id</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">tab2</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<p><strong>输出：</strong></p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">新标签页 2500121968848</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">新标签页 2500125672272</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-浏览器运行参数">✅️️ 浏览器运行参数<a href="#️️-浏览器运�行参数" class="hash-link" aria-label="✅️️ 浏览器运行参数的直接链接" title="✅️️ 浏览器运行参数的直接链接">​</a></h2>
+<p>浏览器运行设置是一些总体的运行参数。</p>
+<p>新标签页对象会继承浏览器的运行设置，但标签页对象后再修改浏览器设置，已生成的设置也不会改变。</p>
+<p>设置优先级：Tab 对象设置 &gt; <code>Chromium</code>对象设置 &gt; <code>Settings</code>设置</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-user_data_path">📌 <code>user_data_path</code><a href="#-user_data_path" class="hash-link" aria-label="-user_data_path的直接链接" title="-user_data_path的直接链接">​</a></h3>
+<p>此参数返回浏览器返回用户文件夹路径。</p>
+<p><strong>类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-download_path">📌 <code>download_path</code><a href="#-download_path" class="hash-link" aria-label="-download_path的直接链接" title="-download_path的直接链接">​</a></h3>
+<p>此参数返回浏览器返回默认下载路径。</p>
+<p><strong>类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-几种超时参数">📌 几种超时参数<a href="#-几种超时参数" class="hash-link" aria-label="📌 几种超时参数的直接链接" title="📌 几种超时参数的直接链接">​</a></h3>
+<p>此参数返回所有超时设置，单位为秒，有<code>base</code>、<code>page_load</code>、<code>script</code>三种。</p>
+<ul>
+<li><code>timeouts.base</code>：各种等待的基础超时设置</li>
+<li><code>timeouts.page_load</code>：页面文档加载的超时设置</li>
+<li><code>timeouts.script</code>：JavaScript 运行超时设置</li>
+</ul>
+<p><strong>类型：</strong><code>float</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-timeout">📌 <code>timeout</code><a href="#-timeout" class="hash-link" aria-label="-timeout的直接链接" title="-timeout的�直接链接">​</a></h3>
+<p>此参数返回基础超时设置，单位为秒，即<code>timeouts.base</code>。</p>
+<p><strong>类型：</strong><code>float</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-load_mode">📌 <code>load_mode</code><a href="#-load_mode" class="hash-link" aria-label="-load_mode的直接链接" title="-load_mode的直接链接">​</a></h3>
+<p>此参数返回页面加载模式，包括<code>'none'</code>、<code>'normal'</code>、<code>'eager'</code>三种。</p>
+<p><strong>类型：</strong><code>str</code></p>
+<hr>
+
+<br>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-浏览器运行设置">✅️️ 浏览器运行设置<a href="#️️-浏览器运行设置" class="hash-link" aria-label="✅️️ 浏览器运行设置的直接链接" title="✅️️ 浏览器运行设置的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-settimeouts">📌 <code>set.timeouts()</code><a href="#-settimeouts" class="hash-link" aria-label="-settimeouts的直接链接" title="-settimeouts的直接链接">​</a></h3>
+<p>此方法用于设置运行时的各种超时时间，单位为秒。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>base</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>各种等待的默认超时时间，为<code>None</code>则不修改</td></tr><tr><td style="text-align:center"><code>page_load</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>页面文档加载超时时间，为<code>None</code>则不修改</td></tr><tr><td style="text-align:center"><code>script</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>脚本运行超时时间，为<code>None</code>则不修改</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-加载模式设置">📌 加载模式设置<a href="#-加载模式设置" class="hash-link" aria-label="📌 加载模式设置的直接链接" title="📌 加载模式设置的直接链接">​</a></h3>
+<p>此方法用于设置页面加载模式。具体使用方法详见访问网页章节。</p>
+<ul>
+<li><code>set.load_mode.normal()</code>：等待所有资源加载完毕的模式</li>
+<li><code>set.load_mode.eager()</code>：等待文档加载完即停止加载的模式</li>
+<li><code>set.load_mode.none()</code>：不会主动停止加载的模式</li>
+</ul>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-setretry_times">📌 <code>set.retry_times()</code><a href="#-setretry_times" class="hash-link" aria-label="-setretry_times的直接链接" title="-setretry_times的直接链接">​</a></h3>
+<p>此方法用于设置页面连接失败重连次数。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>times</code></td><td style="text-align:center"><code>int</code></td><td style="text-align:center">必填</td><td>重连次数</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-setretry_interval">📌 <code>set.retry_interval()</code><a href="#-setretry_interval" class="hash-link" aria-label="-setretry_interval的直接链接" title="-setretry_interval的直接链接">​</a></h3>
+<p>此方法用于设置连接失败重连间隔（秒）。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>interval</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center">必填</td><td>重连间隔</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-setcookies">📌 <code>set.cookies()</code><a href="#-setcookies" class="hash-link" aria-label="-setcookies的直接链接" title="-setcookies的直接链接">​</a></h3>
+<p>此方法用于设置一个或多个 cookie。</p>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class=""><span class=""><svg width="1rem" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>注意</div><div class=""><p>用这个方法设置 cookies 记得带上<code>domain</code>属性。</p></div></div>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>cookies</code></td><td style="text-align:center"><code>CookieJar</code><br><code>Cookie</code><br><code>list</code><br><code>tuple</code><br><code>str</code><br><code>dict</code></td><td style="text-align:center">必填</td><td>支持多种格式的 cookies 信息，一个或多个都可以</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-setcookiesclear">📌 <code>set.cookies.clear()</code><a href="#-setcookiesclear" class="hash-link" aria-label="-setcookiesclear的直接链接" title="-setcookiesclear的直接链接">​</a></h3>
+<p>此方法用于清除浏览器所有 cookies。</p>
+<p><strong>参数：</strong> 无</p>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-setauto_handle_alert">📌 <code>set.auto_handle_alert()</code><a href="#-setauto_handle_alert" class="hash-link" aria-label="-setauto_handle_alert的直接链接" title="-setauto_handle_alert的直接链接">​</a></h3>
+<p>此方法用于设置是否启用自动处理 alert 弹窗。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>on_off</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td><code>bool</code>表示开或关，传入<code>None</code>表示使用<code>Settings</code>设置</td></tr><tr><td style="text-align:center"><code>accept</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>处理 alert 的方式，确定还是取消</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-setdownload_path">📌 <code>set.download_path()</code><a href="#-setdownload_path" class="hash-link" aria-label="-setdownload_path的直接链接" title="-setdownload_path的直接链接">​</a></h3>
+<p>此方法用于设置下载文件默认保存路径。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>path</code></td><td style="text-align:center"><code>Path</code><br><code>str</code><br><code>None</code></td><td style="text-align:center">必填</td><td>文件夹路径，传入<code>None</code>表示当前文件夹</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-setdownload_file_name">📌 <code>set.download_file_name()</code><a href="#-setdownload_file_name" class="hash-link" aria-label="-setdownload_file_name的直接链接" title="-setdownload_file_name的直接链接">​</a></h3>
+<p>此方法用于设置下一个被下载文件的名称。</p>
+<p>有些下载是从临时闪现的标签页触发的，这种需要由浏览器对象去捕捉和设置下载信息。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>name</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>None</code></td><td>文件名，可不含后缀，会自动使用远程文件后缀，为<code>None</code>使用远程文件名</td></tr><tr><td style="text-align:center"><code>suffix</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>None</code></td><td>后缀名，显式设置后缀名，不使用远程文件后缀</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-setwhen_download_file_exists">📌 <code>set.when_download_file_exists()</code><a href="#-setwhen_download_file_exists" class="hash-link" aria-label="-setwhen_download_file_exists的直接链接" title="-setwhen_download_file_exists的直接链接">​</a></h3>
+<p>此方法用于设置当存在同名文件时的处理方式。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>mode</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center">必填</td><td>可在<code>'rename'</code>、<code>'overwrite'</code>、<code>'skip'</code>、<code>'r'</code>、<code>'o'</code>、<code>'s'</code>中选择</td></tr></tbody></table>
+<ul>
+<li><code>'rename'</code>或<code>'r'</code>：自动重命名，在文件名后加序号，如<code>'_1'</code></li>
+<li><code>'overwrit'</code>或<code>'o'</code>：覆盖已有文件</li>
+<li><code>'skip'</code>或<code>'s'</code>：跳过，不下载</li>
+</ul>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-setnoneelement_value">📌 <code>set.NoneElement_value()</code><a href="#-setnoneelement_value" class="hash-link" aria-label="-setnoneelement_value的直接链接" title="-setnoneelement_value的直接链接">​</a></h3>
+<p>此方法用于设置查找元素失败时返回的空元素是否返回设定值。详见元素查找行为章节。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>value</code></td><td style="text-align:center"><code>Any</code></td><td style="text-align:center"><code>None</code></td><td>设置的设定值</td></tr><tr><td style="text-align:center"><code>on_off</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否启用</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-浏览器信息">✅️️ 浏览器信息<a href="#️️-浏览器信息" class="hash-link" aria-label="✅️️ ��浏览器信息的直接链接" title="✅️️ 浏览器信息的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-cookies">📌 <code>cookies()</code><a href="#-cookies" class="hash-link" aria-label="-cookies的直接链接" title="-cookies的直接链接">​</a></h3>
+<p>此方法以列表形式返回浏览器所有域名的 cookies，cookie 是<code>dict</code>格式。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>all_info</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>是否返回所有内容，<code>False</code>则只返回<code>'name'</code>、<code>'value'</code>、<code>'domain'</code>三个属性</td></tr></tbody></table>
+<p><strong>返回：</strong><code>CookiesList</code></p>
+<p>除列表格式，还能以其它格式返回：</p>
+<ul>
+<li><code>cookies().as_str</code>：以<code>str</code>格式返回，只包含<code>name</code>和<code>value</code>字段，<code>'name1=value1; name2=value2'</code>格式</li>
+<li><code>cookies().as_dict</code>：以<code>dict</code>格式返回，只包含<code>name</code>和<code>value</code>字段，<code>{'name1': 'value1', 'name2': 'value1'}</code>格式</li>
+<li><code>cookies().as_json</code>：把列表转换为 json 返回</li>
+</ul>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-process_id">📌 <code>process_id</code><a href="#-process_id" class="hash-link" aria-label="-process_id的直接链接" title="-process_id的直接链接">​</a></h3>
+<p>此属性返回浏览器进程 pid。</p>
+<p><strong>类型：</strong><code>int</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-statesis_alive">📌 <code>states.is_alive</code><a href="#-statesis_alive" class="hash-link" aria-label="-statesis_alive的直接链接" title="-statesis_alive的直接链接">​</a></h3>
+<p>此属性返回浏览器是否仍可用。</p>
+<p><strong>类型：</strong><code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-statesis_existed">📌 <code>states.is_existed</code><a href="#-statesis_existed" class="hash-link" aria-label="-statesis_existed的直接链接" title="-statesis_existed的直接链接">​</a></h3>
+<p>此属性返回浏览器是否接管的，而非本程序创建的。</p>
+<p><strong>类型：</strong><code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-statesis_headless">📌 <code>states.is_headless</code><a href="#-statesis_headless" class="hash-link" aria-label="-statesis_headless的直接链接" title="-statesis_headless的直接链接">​</a></h3>
+<p>此属性返回浏览器是否无头模式。</p>
+<p><strong>类型：</strong><code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-statesis_incognito">📌 <code>states.is_incognito</code><a href="#-statesis_incognito" class="hash-link" aria-label="-statesis_incognito的直接链接" title="-statesis_incognito的直接链接">​</a></h3>
+<p>此属性返回浏览器是否无痕模式。</p>
+<p><strong>类型：</strong><code>bool</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-其它浏览器行为">✅️️ 其它浏览器行为<a href="#️️-其它浏览器行为" class="hash-link" aria-label="✅️️ 其它浏览器行为的直接链接" title="✅️️ 其它浏览器行为的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-wait">📌 <code>wait()</code><a href="#-wait" class="hash-link" aria-label="-wait的直接链接" title="-wait的直接链接">​</a></h3>
+<p>此方法用于等待若干秒。<br>
+<code>scope</code>为<code>None</code>时，效果与<code>time.sleep()</code>没有区别，等待指定秒数。<br>
+<code>scope</code>不为<code>None</code>时，获取两个参数之间的一个随机值，等待这个数值的秒数。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>second</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center">必填</td><td>要等待的秒数，<code>scope</code>不为<code>None</code>时表示随机数范围起始值</td></tr><tr><td style="text-align:center"><code>scope</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>随机数范围结束值</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>Chromium</code></td><td>浏览器对象自身</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-waitnew_tab">📌 <code>wait.new_tab()</code><a href="#-waitnew_tab" class="hash-link" aria-label="-waitnew_tab的直接链接" title="-waitnew_tab的直接链接">​</a></h3>
+<p>此方法用于等待新标签页出现。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>超时时间（秒），为<code>None</code>则使用对象<code>timeout</code>属性</td></tr><tr><td style="text-align:center"><code>curr_tab</code></td><td style="text-align:center"><code>str</code><br><code>ChromiumTab</code><br><code>MixTab</code></td><td style="text-align:center"><code>None</code></td><td>指定当前最新的 Tab 对象或标签页 id，用于判断新标签页出现，为<code>None</code>自动获取</td></tr><tr><td style="text-align:center"><code>raise_err</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>None</code></td><td>等待失败时是否报错，为<code>None</code>时根据<code>Settings</code>设置</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>str</code></td><td>等待成功返回新标签页 id</td></tr><tr><td style="text-align:center"><code>False</code></td><td>等待失败返回<code>False</code></td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-waitdownload_begin">📌 <code>wait.download_begin()</code><a href="#-waitdownload_begin" class="hash-link" aria-label="-waitdownload_begin的直接链接" title="-waitdownload_begin的直接链接">​</a></h3>
+<p>此方法用于等待浏览器下载开始。</p>
+<p>有些下载是从临时闪现的标签页触发的，这种需要由浏览器对象去捕捉。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>超时时间（秒），<code>None</code>使用页面对象超时时间</td></tr><tr><td style="text-align:center"><code>cancel_it</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>是否取消该任务</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>DownloadMission</code></td><td>等待成功返回下载任务对象</td></tr><tr><td style="text-align:center"><code>False</code></td><td>等待失败返回<code>False</code></td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-waitdownloads_done">📌 <code>wait.downloads_done()</code><a href="#-waitdownloads_done" class="hash-link" aria-label="-waitdownloads_done的直接链接" title="-waitdownloads_done的直接链接">​</a></h3>
+<p>此方法用于等待所有浏览器下载任务结束。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>超时时间（秒），为<code>None</code>时无限等待</td></tr><tr><td style="text-align:center"><code>cancel_if_timeout</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>超时时是否取消剩余任务</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>bool</code></td><td>是否等待成功</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-clear_cache">📌 <code>clear_cache()</code><a href="#-clear_cache" class="hash-link" aria-label="-clear_cache的直接链接" title="-clear_cache的直接链接">​</a></h3>
+<p>此方法用于清除缓存。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>cache</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否清除缓存</td></tr><tr><td style="text-align:center"><code>cookies</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否清除 cookies</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-reconnect">📌 <code>reconnect()</code><a href="#-reconnect" class="hash-link" aria-label="-reconnect的直接链接" title="-reconnect的直接链接">​</a></h3>
+<p>此方法用于关闭与浏览器连接，并重新创建连接。</p>
+<p><strong>参数：</strong> 无</p>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-quit">📌 <code>quit()</code><a href="#-quit" class="hash-link" aria-label="-quit的直接链接" title="-quit的直接链接">​</a></h3>
+<p>此方法用于关闭浏览器。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>5</code></td><td>等待浏览器关闭超时时间（秒）</td></tr><tr><td style="text-align:center"><code>force</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>是否立刻强制终止进程</td></tr><tr><td style="text-align:center"><code>del_data</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>是否删除用户文件夹</td></tr></tbody></table>
+<p><strong>返回：</strong><code>None</code></p></div>
+      </article>
+      <dp-pager><a class="pager-link prev" slot="prev" href="browser_control_browser_options.html"><span class="dir">上一页</span>🛰️ 浏览器启动设置</a><a class="pager-link next" slot="next" href="browser_control_tabs.html"><span class="dir">下一页</span>🛰️ 标签页管理</a></dp-pager>
+    </div>
+    <dp-toc>
+<ul class="toc-list"><li class="toc-h2"><a href="#️️-获取标签页对象或信息">✅️️ 获取标签页对象或信息​</a></li><li class="toc-h3"><a href="#-get_tab">📌 get_tab()​</a></li><li class="toc-h3"><a href="#-get_tabs">📌 get_tabs()​</a></li><li class="toc-h3"><a href="#-latest_tab">📌 latest_tab​</a></li><li class="toc-h3"><a href="#-tabs_count">📌 tabs_count​</a></li><li class="toc-h3"><a href="#-tab_ids">📌 tab_ids​</a></li><li class="toc-h2"><a href="#️️-标签页操作">✅️️ 标签页操作​</a></li><li class="toc-h3"><a href="#-new_tab">📌 new_tab()​</a></li><li class="toc-h3"><a href="#-activate_tab">📌 activate_tab()​</a></li><li class="toc-h3"><a href="#-close_tabs">📌 close_tabs()​</a></li><li class="toc-h3"><a href="#-单例模式说明">📌 单例模式说明​</a></li><li class="toc-h2"><a href="#️️-浏览器运行参数">✅️️ 浏览器运行参数​</a></li><li class="toc-h3"><a href="#-user_data_path">📌 user_data_path​</a></li><li class="toc-h3"><a href="#-download_path">📌 download_path​</a></li><li class="toc-h3"><a href="#-几种超时参数">📌 几种超时参数​</a></li><li class="toc-h3"><a href="#-timeout">📌 timeout​</a></li><li class="toc-h3"><a href="#-load_mode">📌 load_mode​</a></li><li class="toc-h2"><a href="#️️-浏览器运行设置">✅️️ 浏览器运行设置​</a></li><li class="toc-h3"><a href="#-settimeouts">📌 set.timeouts()​</a></li><li class="toc-h3"><a href="#-加载模式设置">📌 加载模式设置​</a></li><li class="toc-h3"><a href="#-setretry_times">📌 set.retry_times()​</a></li><li class="toc-h3"><a href="#-setretry_interval">📌 set.retry_interval()​</a></li><li class="toc-h3"><a href="#-setcookies">📌 set.cookies()​</a></li><li class="toc-h3"><a href="#-setcookiesclear">📌 set.cookies.clear()​</a></li><li class="toc-h3"><a href="#-setauto_handle_alert">📌 set.auto_handle_alert()​</a></li><li class="toc-h3"><a href="#-setdownload_path">📌 set.download_path()​</a></li><li class="toc-h3"><a href="#-setdownload_file_name">📌 set.download_file_name()​</a></li><li class="toc-h3"><a href="#-setwhen_download_file_exists">📌 set.when_download_file_exists()​</a></li><li class="toc-h3"><a href="#-setnoneelement_value">📌 set.NoneElement_value()​</a></li><li class="toc-h2"><a href="#️️-浏览器信息">✅️️ 浏览器信息​</a></li><li class="toc-h3"><a href="#-cookies">📌 cookies()​</a></li><li class="toc-h3"><a href="#-process_id">📌 process_id​</a></li><li class="toc-h3"><a href="#-statesis_alive">📌 states.is_alive​</a></li><li class="toc-h3"><a href="#-statesis_existed">📌 states.is_existed​</a></li><li class="toc-h3"><a href="#-statesis_headless">📌 states.is_headless​</a></li><li class="toc-h3"><a href="#-statesis_incognito">📌 states.is_incognito​</a></li><li class="toc-h2"><a href="#️️-其它浏览器行为">✅️️ 其它浏览器行为​</a></li><li class="toc-h3"><a href="#-wait">📌 wait()​</a></li><li class="toc-h3"><a href="#-waitnew_tab">📌 wait.new_tab()​</a></li><li class="toc-h3"><a href="#-waitdownload_begin">📌 wait.download_begin()​</a></li><li class="toc-h3"><a href="#-waitdownloads_done">📌 wait.downloads_done()​</a></li><li class="toc-h3"><a href="#-clear_cache">📌 clear_cache()​</a></li><li class="toc-h3"><a href="#-reconnect">📌 reconnect()​</a></li><li class="toc-h3"><a href="#-quit">📌 quit()​</a></li></ul>
+    </dp-toc>
+  </div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🛩️ 查找元素 - DrissionPage 文档</title>
+<meta name="generator" content="drissionpage offline doc builder">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/search-index.js"></script>
+<script src="../assets/dp-ui.js"></script>
+</head>
+<body data-prefix="../">
+<div class="layout">
+<dp-sidebar active="SessionPage_get_ele"></dp-sidebar>
+<div class="main">
+  <dp-topbar><span class="crumb" slot="crumb">SessionPage / <b>🛩️ 查找元素</b></span></dp-topbar>
+  <div class="content">
+    <div class="article">
+      <article>
+<div class="theme-doc-markdown markdown"><header><h1>🛩️ 查找元素</h1></header>
+<br>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-页面或元素内查找">✅️️ 页面或元素内查找<a href="#️️-页面或元素内查找" class="hash-link" aria-label="✅️️ 页面或元素内查找的直接链接" title="✅️️ 页面或元素内查找的直接链接">​</a></h2>
+<p>页面对象和元素对象都拥有<code>ele()</code>和<code>eles()</code>方法，用于获取其内部指定子元素。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-ele">📌 <code>ele()</code><a href="#-ele" class="hash-link" aria-label="-ele的直接链接" title="-ele的直接链接">​</a></h3>
+<p>用于查找其内部第一个条件匹配的元素。</p>
+<p>页面对象和元素对象的<code>ele()</code>方法参数名称稍有不同，但用法一样。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>locator</code></td><td style="text-align:center"><code>str</code><br><code>Tuple[str, str]</code></td><td style="text-align:center">必填</td><td>元素的定位信息。可以是查询字符串，或 loc 元组</td></tr><tr><td style="text-align:center"><code>index</code></td><td style="text-align:center"><code>int</code></td><td style="text-align:center"><code>1</code></td><td>获取第几个匹配的元素，从<code>1</code>开始，可输入负数表示从后面开始数</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>此参数在这里没有作用</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>SessionElement</code></td><td>找到的第一个元素对象</td></tr><tr><td style="text-align:center"><code>NoneElement</code></td><td>未找到符合条件的元素时返回</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-eles">📌 <code>eles()</code><a href="#-eles" class="hash-link" aria-label="-eles的��直接链接" title="-eles的直接链接">​</a></h3>
+<p>此方法与<code>ele()</code>相似，但返回的是匹配到的所有元素组成的列表。</p>
+<p>页面对象和元素对象都可调用这个方法。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>locator</code></td><td style="text-align:center"><code>str</code><br><code>Tuple[str, str]</code></td><td style="text-align:center">必填</td><td>元素的定位信息，可以是查询字符串，或 loc 元组</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>此参数在这里没有作用</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>SessionElementsList</code></td><td>元素对象组成的列表</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-相对定位">✅️️ 相对定位<a href="#️️-相对定位" class="hash-link" aria-label="✅️️ 相对定位的直接链接" title="✅️️ 相对定位的直接链接">​</a></h2>
+<p>以下方法可以以某元素为基准，在 DOM 中按照条件获取其直接子节点、同级节点、祖先元素、文档前后节点。</p>
+<p>这里说的是 “节点”，不是 “元素”。因为相对定位可以获取除元素外的其它节点，包括文本、注释节点。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-获取父级元素">📌 获取父级元素<a href="#-获取父级元素" class="hash-link" aria-label="📌 获取父级元素的直接链接" title="📌 获取父级元素的直接链接">​</a></h3>
+<p>🔸 <code>parent()</code></p>
+<p>此方法获取当前元素某一级父元素，可指定筛选条件或层数。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>level_or_loc</code></td><td style="text-align:center"><code>int</code><br><code>str</code><br><code>Tuple[str, str]</code></td><td style="text-align:center"><code>1</code></td><td>第几级父元素，从<code>1</code>开始，或用定位符在祖先元素中进行筛选</td></tr><tr><td style="text-align:center"><code>index</code></td><td style="text-align:center"><code>int</code></td><td style="text-align:center"><code>1</code></td><td>当<code>level_or_loc</code>传入定位符，使用此参数选择第几个结果，从当前元素往上级数；当<code>level_or_loc</code>传入数字时，此参数无效</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>0</code></td><td>查找超时时间（秒）</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>SessionElement</code></td><td>元素对象</td></tr><tr><td style="text-align:center"><code>NoneElement</code></td><td>未获取到结果时</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-获取直接子节点">📌 获取直接子节点<a href="#-获取直接子节点" class="hash-link" aria-label="📌 获取直接子节点的直接链接" title="📌 获取直接子节点的直接链接">​</a></h3>
+<p>🔸 <code>child()</code></p>
+<p>此方法返回当前元素的一个直接子节点，可指定筛选条件和第几个。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>locator</code></td><td style="text-align:center"><code>str</code><br><code>Tuple[str, str]</code><br><code>int</code></td><td style="text-align:center"><code>''</code></td><td>用于筛选节点的查询语法，为<code>int</code>类型时<code>index</code>参数无效</td></tr><tr><td style="text-align:center"><code>index</code></td><td style="text-align:center"><code>int</code></td><td style="text-align:center"><code>1</code></td><td>查询结果中的第几个，从<code>1</code>开始，可输入负数表示倒数</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>无实际作用</td></tr><tr><td style="text-align:center"><code>ele_only</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否只查找元素，为<code>False</code>时把文本、注释节点也纳入查找范围</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>str</code></td><td>获取非元素节点时返回字符串</td></tr><tr><td style="text-align:center"><code>SessionElement</code></td><td>元素对象</td></tr><tr><td style="text-align:center"><code>NoneElement</code></td><td>未获取到结果时</td></tr></tbody></table>
+<hr>
+<p>🔸 <code>children()</code></p>
+<p>此方法返回当前元素全部符合条件的直接子节点组成的列表，可用查询语法筛选。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>locator</code></td><td style="text-align:center"><code>str</code><br><code>Tuple[str, str]</code></td><td style="text-align:center"><code>''</code></td><td>用于筛选节点的查询语法</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>无实际作用</td></tr><tr><td style="text-align:center"><code>ele_only</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否只查找元素，为<code>False</code>时把文本、注释节点也纳入查找范围</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>SessionElementsList</code></td><td>结果元素对象组成的列表</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-获取后面的同级节点">📌 获取后面的同级节点<a href="#-获取后面的同级节点" class="hash-link" aria-label="📌 获取后面的同级节点的直接链接" title="📌 获取后面的同级节点的直接链接">​</a></h3>
+<p>🔸 <code>next()</code></p>
+<p>此方法返回当前元素后面的某一个同级节点，可指定筛选条件和第几个。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>locator</code></td><td style="text-align:center"><code>str</code><br><code>Tuple[str, str]</code><br><code>int</code></td><td style="text-align:center"><code>''</code></td><td>用于筛选节点的查询语法，为<code>int</code>类型时<code>index</code>参数无效</td></tr><tr><td style="text-align:center"><code>index</code></td><td style="text-align:center"><code>int</code></td><td style="text-align:center"><code>1</code></td><td>查询结果中的第几个，从<code>1</code>开始，可输入负数表示倒数</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>无实际作用</td></tr><tr><td style="text-align:center"><code>ele_only</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否只查找元素，为<code>False</code>时把文本、注释节点也纳入查找范围</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>str</code></td><td>获取非元素节点时返回字符串</td></tr><tr><td style="text-align:center"><code>SessionElement</code></td><td>元素对象</td></tr><tr><td style="text-align:center"><code>NoneElement</code></td><td>未获取到结果时</td></tr></tbody></table>
+<hr>
+<p>🔸 <code>nexts()</code></p>
+<p>此方法返回当前元素后面全部符合条件的同级节点组成的列表，可用查询语法筛选。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>locator</code></td><td style="text-align:center"><code>str</code><br><code>Tuple[str, str]</code></td><td style="text-align:center"><code>''</code></td><td>用于筛选节点的查询语法</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>无实际作用</td></tr><tr><td style="text-align:center"><code>ele_only</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否只查找元素，为<code>False</code>时把文本、注释节点也纳入查找范围</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>SessionElementsList</code></td><td>结果元素对象组成的列表</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-获取前面的同级节点">📌 获取前面的同级节点<a href="#-获取前面的同级节点" class="hash-link" aria-label="📌 获取前面的同级节点的直接链接" title="📌 获取前面的同级节点的直接链接">​</a></h3>
+<p>🔸 <code>prev()</code></p>
+<p>此方法返回当前元素前面的某一个同级节点，可指定筛选条件和第几个。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>locator</code></td><td style="text-align:center"><code>str</code><br><code>Tuple[str, str]</code><br><code>int</code></td><td style="text-align:center"><code>''</code></td><td>用于筛选节点的查询语法，为<code>int</code>类型时<code>index</code>参数无效</td></tr><tr><td style="text-align:center"><code>index</code></td><td style="text-align:center"><code>int</code></td><td style="text-align:center"><code>1</code></td><td>查询结果中的第几个，从<code>1</code>开始，可输入负数表示倒数</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>无实际作用</td></tr><tr><td style="text-align:center"><code>ele_only</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否只查找元素，为<code>False</code>时把文本、注释节点也纳入查找范围</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>str</code></td><td>获取非元素节点时返回字符串</td></tr><tr><td style="text-align:center"><code>SessionElement</code></td><td>元素对象</td></tr><tr><td style="text-align:center"><code>NoneElement</code></td><td>未获取到结果时</td></tr></tbody></table>
+<hr>
+<p>🔸 <code>prevs()</code></p>
+<p>此方法返回当前元素前面全部符合条件的同级节点组成的列表，可用查询语法筛选。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>locator</code></td><td style="text-align:center"><code>str</code><br><code>Tuple[str, str]</code></td><td style="text-align:center"><code>''</code></td><td>用于筛选节点的查询语法</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>无实际作用</td></tr><tr><td style="text-align:center"><code>ele_only</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否只查找元素，为<code>False</code>时把文本、注释节点也纳入查找范围</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>SessionElementsList</code></td><td>结果元素对象组成的列表</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-在后面文档中查找节点">📌 在后面文档中查找节点<a href="#-在后面文档中查找节点" class="hash-link" aria-label="📌 在后面文档中查找节点的直接链接" title="📌 在后面文档中查找节点的直接链接">​</a></h3>
+<p>🔸 <code>after()</code></p>
+<p>此方法返回当前元素后面的某一个节点，可指定筛选条件和第几个。查找范围不限同级节点，而是整个 DOM 文档。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>locator</code></td><td style="text-align:center"><code>str</code><br><code>Tuple[str, str]</code><br><code>int</code></td><td style="text-align:center"><code>''</code></td><td>用于筛选节点的查询语法，为<code>int</code>类型时<code>index</code>参数无效</td></tr><tr><td style="text-align:center"><code>index</code></td><td style="text-align:center"><code>int</code></td><td style="text-align:center"><code>1</code></td><td>查询结果中的第几个，从<code>1</code>开始，可输入负数表示倒数</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>无实际作用</td></tr><tr><td style="text-align:center"><code>ele_only</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否只查找元素，为<code>False</code>时把文本、注释节点也纳入查找范围</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>str</code></td><td>获取非元素节点时返回字符串</td></tr><tr><td style="text-align:center"><code>SessionElement</code></td><td>元素对象</td></tr><tr><td style="text-align:center"><code>NoneElement</code></td><td>未获取到结果时</td></tr></tbody></table>
+<hr>
+<p>🔸 <code>afters()</code></p>
+<p>此方法返回当前元素后面符合条件的全部节点组成的列表，可用查询语法筛选。查找范围不限同级节点，而是整个 DOM 文档。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>locator</code></td><td style="text-align:center"><code>str</code><br><code>Tuple[str, str]</code></td><td style="text-align:center"><code>''</code></td><td>用于筛选节点的查询语法</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>无实际作用</td></tr><tr><td style="text-align:center"><code>ele_only</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否只查找元素，为<code>False</code>时把文本、注释节点也纳入查找范围</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>SessionElementsList</code></td><td>结果元素对象组成的列表</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-在前面文档中查找节点">📌 在前面文档中查找节点<a href="#-在前面文档中查找节点" class="hash-link" aria-label="📌 在前面文档中查找节点的直接链接" title="📌 在前面文档中查找节点的直接链接">​</a></h3>
+<p>🔸 <code>before()</code></p>
+<p>此方法返回当前元素前面的某一个符合条件的节点，可指定筛选条件和第几个。查找范围不限同级节点，而是整个 DOM 文档。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>locator</code></td><td style="text-align:center"><code>str</code><br><code>Tuple[str, str]</code><br><code>int</code></td><td style="text-align:center"><code>''</code></td><td>用于筛选节点的查询语法，为<code>int</code>类型时<code>index</code>参数无效</td></tr><tr><td style="text-align:center"><code>index</code></td><td style="text-align:center"><code>int</code></td><td style="text-align:center"><code>1</code></td><td>查询结果中的第几个，从<code>1</code>开始，可输入负数表示倒数</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>无实际作用</td></tr><tr><td style="text-align:center"><code>ele_only</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否只查找元素，为<code>False</code>时把文本、注释节点也纳入查找范围</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>str</code></td><td>获取非元素节点时返回字符串</td></tr><tr><td style="text-align:center"><code>SessionElement</code></td><td>元素对象</td></tr><tr><td style="text-align:center"><code>NoneElement</code></td><td>未获取到结果时</td></tr></tbody></table>
+<hr>
+<p>🔸 <code>befores()</code></p>
+<p>此方法返回当前元素前面全部符合条件的节点组成的列表，可用查询语法筛选。查找范围不限同级节点，而是整个 DOM 文档。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>locator</code></td><td style="text-align:center"><code>str</code><br><code>Tuple[str, str]</code></td><td style="text-align:center"><code>''</code></td><td>用于筛选节点的查询语法</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>无实际作用</td></tr><tr><td style="text-align:center"><code>ele_only</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否只查找元素，为<code>False</code>时把文本、注释节点也纳入查找范围</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>SessionElementsList</code></td><td>结果元素对象组成的列表</td></tr></tbody></table>
+<hr>
+
+<br>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-同时匹配多个定位符">✅️️ 同时匹配多个定位符<a href="#️️-同时匹配多个定位符" class="hash-link" aria-label="✅️️ 同时匹配多个定位符的直接链接" title="✅️️ 同时匹配多个定位符的直接链接">​</a></h2>
+<p>所有页面或元素对象都有<code>find()</code>方法，可接收多个定位符，同时查找多个（批）不同定位符的元素。</p>
+<p>以<code>dict</code>方法返回每个定位符结果。</p>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class=""><span class=""><svg width="1rem" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>说明</div><div class=""><p>当<code>first_ele</code>为<code>True</code>时，如果一个定位符没有被执行过查找，它返回的结果为<code>None</code>。</p></div></div>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>locators</code></td><td style="text-align:center"><code>List[str]</code><br><code>Tuple[str]</code><br><code>str</code><br><code>tuple</code></td><td style="text-align:center">必填</td><td>定位符组成的列表</td></tr><tr><td style="text-align:center"><code>any_one</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否任何一个定位符找到结果即返回</td></tr><tr><td style="text-align:center"><code>first_ele</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>每个定位符获取第一个元素还是所有元素</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>超时时间（秒），为<code>None</code>使用该对象默认设置</td></tr></tbody></table>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class=""><span class=""><svg width="1rem" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>说明</div><div class=""><p>以下所说的 “定位符”，是<code>str</code>或<code>tuple</code>类型的。
+“元素对象”，是<code>SessionElement</code>类型的，没有找到时是<code>NoneElement</code>类型的。
+“元素对象组成的列表” 是<code>SessionElementsList</code>类型的。
+<code>any_one</code>参数为<code>True</code>时，以<code>tuple</code>方式返回找到目标的定位符和结果，为<code>False</code>时以<code>dict</code>方法返回每个定位符结果。</p></div></div>
+<table><thead><tr><th style="text-align:center">返回类型</th><th style="text-align:center"><code>any_one</code>参数取值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>tuple(定位符, 元素对象)</code></td><td style="text-align:center"><code>True</code></td><td><code>first_ele</code>为<code>True</code>时，返回第一个有结果的定位符找到的第一个元素对象</td></tr><tr><td style="text-align:center"><code>tuple(定位符, 元素对象组成的列表)</code></td><td style="text-align:center"><code>True</code></td><td><code>first_ele</code>为<code>False</code>时，返回第一个有结果的定位符找到的所有元素对象</td></tr><tr><td style="text-align:center"><code>tuple(None, None)</code></td><td style="text-align:center"><code>True</code></td><td>所有定位符都没有找到元素，返回<code>(None, None)</code></td></tr><tr><td style="text-align:center"><code>dict{定位符: 元素对象}</code></td><td style="text-align:center"><code>False</code></td><td><code>first_ele</code>为<code>True</code>时，每个定位符返回第一个元素，找不到时为<code>NoneElement</code></td></tr><tr><td style="text-align:center"><code>dict{定位符: 元素对象组成的列表}</code></td><td style="text-align:center"><code>False</code></td><td><code>first_ele</code>为<code>False</code>时，每个定位符返回所有结果元素组成的列表</td></tr></tbody></table></div>
+      </article>
+      <dp-pager><a class="pager-link prev" slot="prev" href="SessionPage_get_page_info.html"><span class="dir">上一页</span>🛩️ 获取页面信息</a><a class="pager-link next" slot="next" href="SessionPage_get_ele_info.html"><span class="dir">下一页</span>🛩️ 获取元素信息</a></dp-pager>
+    </div>
+    <dp-toc>
+<ul class="toc-list"><li class="toc-h2"><a href="#️️-页面或元素内查找">✅️️ 页面或元素内查找​</a></li><li class="toc-h3"><a href="#-ele">📌 ele()​</a></li><li class="toc-h3"><a href="#-eles">📌 eles()​</a></li><li class="toc-h2"><a href="#️️-相对定位">✅️️ 相对定位​</a></li><li class="toc-h3"><a href="#-获取父级元素">📌 获取父级元素​</a></li><li class="toc-h3"><a href="#-获取直接子节点">📌 获取直接子节点​</a></li><li class="toc-h3"><a href="#-获取后面的同级节点">📌 获取后面的同级节点​</a></li><li class="toc-h3"><a href="#-获取前面的同级节点">📌 获取前面的同级节点​</a></li><li class="toc-h3"><a href="#-在后面文档中查找节点">📌 在后面文档中查找节点​</a></li><li class="toc-h3"><a href="#-在前面文档中查找节点">📌 在前面文档中查找节点​</a></li><li class="toc-h2"><a href="#️️-同时匹配多个定位符">✅️️ 同时匹配多个定位符​</a></li></ul>
+    </dp-toc>
+  </div>
+</div>
+</div>
+</body>
+</html>

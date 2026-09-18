@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🛰️ 获取元素信息 - DrissionPage 文档</title>
+<meta name="generator" content="drissionpage offline doc builder">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/search-index.js"></script>
+<script src="../assets/dp-ui.js"></script>
+</head>
+<body data-prefix="../">
+<div class="layout">
+<dp-sidebar active="browser_control_get_ele_info"></dp-sidebar>
+<div class="main">
+  <dp-topbar><span class="crumb" slot="crumb">浏览器控制 / <b>🛰️ 获取元素信息</b></span></dp-topbar>
+  <div class="content">
+    <div class="article">
+      <article>
+<div class="theme-doc-markdown markdown"><header><h1>🛰️ 获取元素信息</h1></header>
+<br>
+<p>浏览器元素对应的对象是<code>ChromiumElement</code>和<code>ShadowRoot</code>，本节介绍如何获取元素信息。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-内容和属性">✅️️ 内容和属性<a href="#️️-内容和属性" class="hash-link" aria-label="✅️️ 内容和属性的直接链接" title="✅️️ 内容和属性的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-tag">📌 <code>tag</code><a href="#-tag" class="hash-link" aria-label="-tag的直接链接" title="-tag的直接链接">​</a></h3>
+<p>此属性返回元素的标签名。</p>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-html">📌 <code>html</code><a href="#-html" class="hash-link" aria-label="-html的直接链接" title="-html的直接链接">​</a></h3>
+<p>此属性返回元素的<code>outerHTML</code>文本。</p>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-inner_html">📌 <code>inner_html</code><a href="#-inner_html" class="hash-link" aria-label="-inner_html的直接链接" title="-inner_html的直接链接">​</a></h3>
+<p>此属性返回元素的<code>innerHTML</code>文本。</p>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-text">📌 <code>text</code><a href="#-text" class="hash-link" aria-label="-text的直接链接" title="-text的直接链接">​</a></h3>
+<p>此属性返回元素内所有文本组合成的字符串。<br>
+<!-- -->该字符串已格式化，即已转码，已去除多余换行符，符合人读取习惯，便于直接使用。</p>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-raw_text">📌 <code>raw_text</code><a href="#-raw_text" class="hash-link" aria-label="-raw_text的直接链接" title="-raw_text的直接链接">​</a></h3>
+<p>此属性返回元素内未经处理的原始文本。</p>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-texts">📌 <code>texts()</code><a href="#-texts" class="hash-link" aria-label="-texts的直接链接" title="-texts的直接链接">​</a></h3>
+<p>此方法返回元素内所有<strong>直接</strong>子节点的文本，包括元素和文本节点。 它有一个参数<code>text_node_only</code>，为<code>True</code>时则只获取只返回不被包裹的文本节点。这个方法适用于获取文本节点和元素节点混排的情况。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>text_node_only</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>是否只返回文本节点</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>List[str]</code></td><td>文本列表</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-comments">📌 <code>comments</code><a href="#-comments" class="hash-link" aria-label="-comments的直接链接" title="-comments的直接链接">​</a></h3>
+<p>此属性以列表形式返回元素内的注释。</p>
+<p><strong>返回类型：</strong><code>List[str]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-attrs">📌 <code>attrs</code><a href="#-attrs" class="hash-link" aria-label="-attrs的直接链接" title="-attrs的直接链接">​</a></h3>
+<p>此属性以字典形式返回元素所有属性及值。</p>
+<p><strong>返回类型：</strong><code>dict</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-attr">📌 <code>attr()</code><a href="#-attr" class="hash-link" aria-label="-attr的直接链接" title="-attr的直接链接">​</a></h3>
+<p>此方法返回元素某个 attribute 属性值。它接收一个字符串参数，返回该属性值文本，无该属性时返回<code>None</code>。<br>
+<!-- -->此属性返回的<code>src</code>、<code>href</code>属性为已补充完整的路径。<code>text</code>属性为已格式化文本。
+如果要获取未补充完整路径的<code>src</code>或<code>href</code>属性，可以用<code>attrs['src']</code>。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>name</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center">必填</td><td>属性名称</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>str</code></td><td>属性值文本</td></tr><tr><td style="text-align:center"><code>None</code></td><td>没有该属性返回<code>None</code></td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-property">📌 <code>property()</code><a href="#-property" class="hash-link" aria-label="-property的直接链接" title="-property的直接链接">​</a></h3>
+<p>此方法返回<code>property</code>属性值。它接收一个字符串参数，返回该参数的属性值。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>name</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center">必填</td><td>属性名称</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>str</code></td><td>属性值</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-value">📌 <code>value</code><a href="#-value" class="hash-link" aria-label="-value的直接链接" title="-value的直接链接">​</a></h3>
+<p>此方法返回元素的<code>value</code>值。</p>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-link">📌 <code>link</code><a href="#-link" class="hash-link" aria-label="-link的直接链接" title="-link的直接链接">​</a></h3>
+<p>此方法返回元素的<code>href</code>属性或<code>src</code>属性，没有这两个属性则返回<code>None</code>。</p>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-pseudobefore">📌 <code>pseudo.before</code><a href="#-pseudobefore" class="hash-link" aria-label="-pseudobefore的直接链接" title="-pseudobefore的直接链接">​</a></h3>
+<p>此属性以文本形式返回当前元素的<code>::before</code>伪元素内容。</p>
+<p><strong>类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-pseudoafter">📌 <code>pseudo.after</code><a href="#-pseudoafter" class="hash-link" aria-label="-pseudoafter的直接链接" title="-pseudoafter的直接链接">​</a></h3>
+<p>此属性以文本形式返回当前元素的<code>::after</code>伪元素内容。</p>
+<p><strong>类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-style">📌 <code>style()</code><a href="#-style" class="hash-link" aria-label="-style的直接链接" title="-style的直接链接">​</a></h3>
+<p>该方法返回元素 css 样式属性值，可获取伪元素的属性。它有两个参数，<code>style</code>参数输入样式属性名称，<code>pseudo_ele</code>
+参数输入伪元素名称，省略则获取普通元素的 css 样式属性。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>style</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center">必填</td><td>样式名称</td></tr><tr><td style="text-align:center"><code>pseudo_ele</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>''</code></td><td>伪元素名称（如有）</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>str</code></td><td>样式属性值</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-shadow_root">📌 <code>shadow_root</code><a href="#-shadow_root" class="hash-link" aria-label="-shadow_root的直接链接" title="-shadow_root的直接链接">​</a></h3>
+<p>此属性返回元素内的 shadow-root 对象，没有的返回<code>None</code>。</p>
+<p><strong>类型：</strong><code>ShadowRoot</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-child_count">📌 <code>child_count</code><a href="#-child_count" class="hash-link" aria-label="-child_count的直接链接" title="-child_count的直接链接">​</a></h3>
+<p>此属性返回元素内第一级子元素个数。</p>
+<p><strong>类型：</strong><code>int</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-大小和位置">✅️️ 大小和位置<a href="#️️-大小和位置" class="hash-link" aria-label="✅️️ 大小和位置的直接链接" title="✅️️ 大小和位置的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectsize">📌 <code>rect.size</code><a href="#-rectsize" class="hash-link" aria-label="-rectsize的直接链接" title="-rectsize的直接链接">​</a></h3>
+<p>此属性以元组形式返回元素的大小。</p>
+<p><strong>类型：</strong><code>Tuple[float, float]</code></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">size </span><span class="token operator">=</span><span class="token plain"> ele</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">rect</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">size</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token comment" style="color: rgb(98, 114, 164);"># 返回：(50, 50)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectlocation">📌 <code>rect.location</code><a href="#-rectlocation" class="hash-link" aria-label="-rectlocation的直接链接" title="-rectlocation的直接链接">​</a></h3>
+<p>此属性以元组形式返回元素<strong>左上角</strong>在<strong>整个页面</strong>中的坐标。</p>
+<p><strong>类型：</strong><code>Tuple[float, float]</code></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">loc </span><span class="token operator">=</span><span class="token plain"> ele</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">rect</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">location</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token comment" style="color: rgb(98, 114, 164);"># 返回：(50, 50)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectmidpoint">📌 <code>rect.midpoint</code><a href="#-rectmidpoint" class="hash-link" aria-label="-rectmidpoint的直接链接" title="-rectmidpoint的直接链接">​</a></h3>
+<p>此属性以元组形式返回元素<strong>中点</strong>在<strong>整个页面</strong>中的坐标。</p>
+<p><strong>类型：</strong><code>Tuple[float, float]</code></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">loc </span><span class="token operator">=</span><span class="token plain"> ele</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">rect</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">midpoint</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token comment" style="color: rgb(98, 114, 164);"># 返回：(55, 55)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectclick_point">📌 <code>rect.click_point</code><a href="#-rectclick_point" class="hash-link" aria-label="-rectclick_point的直接链接" title="-rectclick_point的直接链接">​</a></h3>
+<p>此属性以元组形式返回元素<strong>点击点</strong>在<strong>整个页面</strong>中的坐标。</p>
+<p>点击点是指<code>click()</code>方法点击时的位置，位于元素中上部。</p>
+<p><strong>类型：</strong><code>Tuple[float, float]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectcorners">📌 <code>rect.corners</code><a href="#-rectcorners" class="hash-link" aria-label="-rectcorners的直接链接" title="-rectcorners的直接链接">​</a></h3>
+<p>此属性以列表形式返回元素四个角在页面中的坐标，顺序：左上、右上、右下、左下。</p>
+<p><strong>类型：</strong><code>((float, float), (float, float), (float, float), (float, float),)</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectviewport_corners">📌 <code>rect.viewport_corners</code><a href="#-rectviewport_corners" class="hash-link" aria-label="-rectviewport_corners的直接链接" title="-rectviewport_corners的直接链接">​</a></h3>
+<p>此属性以列表形式返回元素四个角在视口中的坐标，顺序：左上、右上、右下、左下。</p>
+<p><strong>类型：</strong><code>list[(float, float), (float, float), (float, float), (float, float)]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectviewport_location">📌 <code>rect.viewport_location</code><a href="#-rectviewport_location" class="hash-link" aria-label="-rectviewport_location的直接链接" title="-rectviewport_location的直接链接">​</a></h3>
+<p>此属性以元组形式返回元素<strong>左上角</strong>在<strong>当前视口</strong>中的坐标。</p>
+<p><strong>类型：</strong><code>Tuple[float, float]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectviewport_midpoint">📌 <code>rect.viewport_midpoint</code><a href="#-rectviewport_midpoint" class="hash-link" aria-label="-rectviewport_midpoint的直接链接" title="-rectviewport_midpoint的直接链接">​</a></h3>
+<p>此属性以元组形式返回元素<strong>中点</strong>在<strong>当前视口</strong>中的坐标。</p>
+<p><strong>类型：</strong><code>Tuple[floatt, float]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectviewport_click_point">📌 <code>rect.viewport_click_point</code><a href="#-rectviewport_click_point" class="hash-link" aria-label="-rectviewport_click_point的直接链接" title="-rectviewport_click_point的直接链接">​</a></h3>
+<p>此属性以元组形式返回元素<strong>点击点</strong>在<strong>当前视口</strong>中的坐标。</p>
+<p><strong>类型：</strong><code>Tuple[float, float]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectscreen_location">📌 <code>rect.screen_location</code><a href="#-rectscreen_location" class="hash-link" aria-label="-rectscreen_location的直接链接" title="-rectscreen_location的直接链接">​</a></h3>
+<p>此属性以元组形式返回元素<strong>左上角</strong>在<strong>屏幕</strong>中的坐标。</p>
+<p><strong>类型：</strong><code>Tuple[float, float]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectscreen_midpoint">📌 <code>rect.screen_midpoint</code><a href="#-rectscreen_midpoint" class="hash-link" aria-label="-rectscreen_midpoint的直接链接" title="-rectscreen_midpoint的直接链接">​</a></h3>
+<p>此属性以元组形式返回元素<strong>中点</strong>在<strong>屏幕</strong>中的坐标。</p>
+<p><strong>类型：</strong><code>Tuple[float, float]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectscreen_click_point">📌 <code>rect.screen_click_point</code><a href="#-rectscreen_click_point" class="hash-link" aria-label="-rectscreen_click_point的直接链接" title="-rectscreen_click_point的直接链接">​</a></h3>
+<p>此属性以元组形式返回元素<strong>点击点</strong>在<strong>屏幕</strong>中的坐标。</p>
+<p><strong>类型：</strong><code>Tuple[float, float]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectscroll_position">📌 <code>rect.scroll_position</code><a href="#-rectscroll_position" class="hash-link" aria-label="-rectscroll_position的直接链接" title="-rectscroll_position的直接链接">​</a></h3>
+<p>此属性返回元素内滚动条位置，格式：(x, y)。</p>
+<p><strong>类型：</strong><code>Tuple[float, float]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-xpath">📌 <code>xpath</code><a href="#-xpath" class="hash-link" aria-label="-xpath的直接链接" title="-xpath的直接链接">​</a></h3>
+<p>此属性返回当前元素在页面中 xpath 的绝对路径。</p>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-css_path">📌 <code>css_path</code><a href="#-css_path" class="hash-link" aria-label="-css_path的直接链接" title="-css_path的直接链接">​</a></h3>
+<p>此属性返回当前元素在页面中 css selector 的绝对路径。</p>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-元素列表中批量获取信息">✅️️ 元素列表中批量获取信息<a href="#️️-元素列表中批量获取信息" class="hash-link" aria-label="✅️️ 元素列表中批量获取信息的直接链接" title="✅️️ 元素列表中批量获取信息的直接链接">​</a></h2>
+<p><code>eles()</code>等返回的元素列表，自带<code>get</code>属性，可用于获取指定信息。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-示例">📌 示例<a href="#-示例" class="hash-link" aria-label="📌 示例的直接链接" title="📌 示例的直接链接">​</a></h3>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> SessionPage</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page </span><span class="token operator">=</span><span class="token plain"> SessionPage</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">get</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'https://www.baidu.com'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">eles </span><span class="token operator">=</span><span class="token plain"> page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'#s-top-left'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">eles</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'t:a'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">print</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">eles</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">get</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">texts</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain">  </span><span class="token comment" style="color: rgb(98, 114, 164);"># 获取所有元素的文本</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<p><strong>输出：</strong></p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">['新闻', 'hao123', '地图', '贴吧', '视频', '图片', '网盘', '文库', '更多', '翻译', '学术', '百科', '知道', '健康', '营销推广', '直播', '音乐', '橙篇', '查看全部百度产品 &gt;']</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-getattrs">📌 <code>get.attrs()</code><a href="#-getattrs" class="hash-link" aria-label="-getattrs的直接链接" title="-getattrs的直接链接">​</a></h3>
+<p>此方法用于返回所有元素指定的 attribute 属性组成的列表。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>name</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center">必填</td><td>属性名称</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>List[str]</code></td><td>属性文本组成的列表</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-getlinks">📌 <code>get.links()</code><a href="#-getlinks" class="hash-link" aria-label="-getlinks的直接链接" title="-getlinks的直接链接">​</a></h3>
+<p>此方法用于返回所有元素的<code>link</code>属性组成的列表。</p>
+<p><strong>参数：</strong> 无</p>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>List[str]</code></td><td>链接文本组成的列表</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-gettexts">📌 <code>get.texts()</code><a href="#-gettexts" class="hash-link" aria-label="-gettexts的直接链接" title="-gettexts的直接链接">​</a></h3>
+<p>此方法用于返回所有元素的<code>text</code>属性组成的列表。</p>
+<p><strong>参数：</strong> 无</p>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>List[str]</code></td><td>元素文本组成的列表</td></tr></tbody></table>
+<hr>
+
+<br>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-状态信息">✅️️ 状态信息<a href="#️️-状态信息" class="hash-link" aria-label="✅️️ 状态信息的直接链接" title="✅️️ 状态信息的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="timeout">📌<code>timeout</code><a href="#timeout" class="hash-link" aria-label="timeout的直接链接" title="timeout的直接链接">​</a></h3>
+<p>此属性返回获取内部或相对定位元素的超时时间，实际上是元素所在页面的超时设置。</p>
+<p><strong>类型：</strong><code>float</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="statesis_in_viewport">📌<code>states.is_in_viewport</code><a href="#statesis_in_viewport" class="hash-link" aria-label="statesis_in_viewport的直接链接" title="statesis_in_viewport的直接链接">​</a></h3>
+<p>此属性以布尔值方式返回元素是否在视口中，以元素可以接受点击的点为判断。</p>
+<p><strong>类型：</strong><code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="statesis_whole_in_viewport">📌<code>states.is_whole_in_viewport</code><a href="#statesis_whole_in_viewport" class="hash-link" aria-label="statesis_whole_in_viewport的直接链接" title="statesis_whole_in_viewport的直接链接">​</a></h3>
+<p>此属性以布尔值方式返回元素是否整个在视口中。</p>
+<p><strong>类型：</strong><code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="statesis_alive">📌<code>states.is_alive</code><a href="#statesis_alive" class="hash-link" aria-label="statesis_alive的直接链接" title="statesis_alive的直接链接">​</a></h3>
+<p>此属性以布尔值形式返回当前元素是否仍可用。用于判断 d 模式下是否因页面刷新而导致元素失效。</p>
+<p><strong>类型：</strong><code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-statesis_checked">📌 <code>states.is_checked</code><a href="#-statesis_checked" class="hash-link" aria-label="-statesis_checked的直接链接" title="-statesis_checked的直接链接">​</a></h3>
+<p>此属性以布尔值返回表单单选或多选元素是否选中。</p>
+<p><strong>类型：</strong><code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-statesis_selected">📌 <code>states.is_selected</code><a href="#-statesis_selected" class="hash-link" aria-label="-statesis_selected的直接链接" title="-statesis_selected的直接链接">​</a></h3>
+<p>此属性以布尔值返回<code>&lt;select&gt;</code>元素中的项是否选中。</p>
+<p><strong>类型：</strong><code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-statesis_enabled">📌 <code>states.is_enabled</code><a href="#-statesis_enabled" class="hash-link" aria-label="-statesis_enabled的直接链接" title="-statesis_enabled的直接链接">​</a></h3>
+<p>此属性以布尔值返回元素是否可用。</p>
+<p><strong>类型：</strong><code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-statesis_displayed">📌 <code>states.is_displayed</code><a href="#-statesis_displayed" class="hash-link" aria-label="-statesis_displayed的直接链接" title="-statesis_displayed的直接链接">​</a></h3>
+<p>此属性以布尔值返回元素是否可见。</p>
+<p><strong>类型：</strong><code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-statesis_covered">📌 <code>states.is_covered</code><a href="#-statesis_covered" class="hash-link" aria-label="-statesis_covered的直接链接" title="-statesis_covered的直接链接">​</a></h3>
+<p>此属性返回元素是否被其它元素覆盖。如被覆盖，返回覆盖元素的 id，否则返回<code>False</code></p>
+<table><thead><tr><th style="text-align:center">返回类型</th><th style="text-align:center">说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>False</code></td><td style="text-align:center">未被覆盖，返回<code>False</code></td></tr><tr><td style="text-align:center"><code>int</code></td><td style="text-align:center">被覆盖时返回覆盖元素的 id</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-statesis_clickable">📌 <code>states.is_clickable</code><a href="#-statesis_clickable" class="hash-link" aria-label="-statesis_clickable的直接链接" title="-statesis_clickable的直接链接">​</a></h3>
+<p>此属性返回元素是否可被模拟点击，从是否有大小、是否可用、是否显示、是否响应点击判断，不判断是否被遮挡。</p>
+<p><strong>类型：</strong><code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-stateshas_rect">📌 <code>states.has_rect</code><a href="#-stateshas_rect" class="hash-link" aria-label="-stateshas_rect的直接链接" title="-stateshas_rect的直接链接">​</a></h3>
+<p>此属性返回元素是否拥有大小和位置信息，有则返回四个角在页面上的坐标组成的列表，没有则返回<code>False</code>。</p>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>list</code></td><td>存在大小和位置信息时，以[(int, int), ...] 格式返回元素四个角的坐标，顺序：左上、右上、右下、左下</td></tr><tr><td style="text-align:center"><code>False</code></td><td>不存在时返回<code>False</code></td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-保存元素">✅️️ 保存元素<a href="#️️-保存元素" class="hash-link" aria-label="✅️️ 保存元素的直接链接" title="✅️️ 保存元素的直接链接">​</a></h2>
+<p>保存功能是本库一个特色功能，可以直接读取浏览器缓存，无需依赖另外的 ui 库或重新下载就可以保存页面资源。</p>
+<p>作为对比，selenium 无法自身实现图片另存，往往需要通过使用 ui 工具进行辅助，不仅效率和可靠性低，还占用键鼠资源。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-src">📌 <code>src()</code><a href="#-src" class="hash-link" aria-label="-src的直接链接" title="-src的直接链接">​</a></h3>
+<p>此方法用于返回元素<code>src</code>属性所使用的资源。base64 的可转为<code>bytes</code>返回，其它的以<code>str</code>返回。无资源的返回<code>None</code>。</p>
+<p>例如，可获取页面上图片字节数据，用于识别内容，或保存到文件。<code>&lt;script&gt;</code>和<code>&lt;link&gt;</code>标签也可获取文件内容。</p>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class=""><span class=""><svg width="1rem" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>注意</div><div class=""><p>获取<code>&lt;script&gt;</code>或<code>&lt;link&gt;</code>文件内容时，视网站情况不一定会成功。</p></div></div>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>等待资源加载超时时间（秒），为<code>None</code>时使用元素所在页面<code>timeout</code>属性</td></tr><tr><td style="text-align:center"><code>base64_to_bytes</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>为<code>True</code>时，如果是 base64 数据，转换为<code>bytes</code>格式</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>str</code></td><td>资源字符串</td></tr><tr><td style="text-align:center"><code>None</code></td><td>无资源的返回<code>None</code></td></tr></tbody></table>
+<p><strong>示例：</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">img </span><span class="token operator">=</span><span class="token plain"> page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'tag:img'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">src </span><span class="token operator">=</span><span class="token plain"> img</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">src</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-save">📌 <code>save()</code><a href="#-save" class="hash-link" aria-label="-save的直接链接" title="-save的直接链接">​</a></h3>
+<p>此方法用于保存<code>src()</code>方法获取到的资源到文件。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>path</code></td><td style="text-align:center"><code>str</code><br><code>Path</code></td><td style="text-align:center"><code>None</code></td><td>文件保存路径，为<code>None</code>时保存到当前文件夹</td></tr><tr><td style="text-align:center"><code>name</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>None</code></td><td>文件名称，需包含后缀，为<code>None</code>时从资源 url 获取</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>None</code></td><td>等待资源加载超时时间（秒），为<code>None</code>时使用元素所在页面<code>timeout</code>属性</td></tr><tr><td style="text-align:center"><code>rename</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>遇到重名文件时是否自动重命名</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>str</code></td><td>保存路径</td></tr></tbody></table>
+<p><strong>示例：</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">img </span><span class="token operator">=</span><span class="token plain"> page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'tag:img'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">img</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">save</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'D:\\img.png'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-比较元素">✅️️ 比较元素<a href="#️️-比较元素" class="hash-link" aria-label="✅️️ 比较元素的直接链接" title="✅️️ 比较元素的直接链接">​</a></h2>
+<p>两个元素对象可以用<code>==</code>来比较，以判断它们是否指向同一个元素。</p>
+<p><strong>示例：</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">ele1 </span><span class="token operator">=</span><span class="token plain"> page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'t:div'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">ele2 </span><span class="token operator">=</span><span class="token plain"> page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'t:div'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">print</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">ele1</span><span class="token operator">==</span><span class="token plain">ele2</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain">  </span><span class="token comment" style="color: rgb(98, 114, 164);"># 输出True</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div></div>
+      </article>
+      <dp-pager><a class="pager-link prev" slot="prev" href="browser_control_ele_operation.html"><span class="dir">上一页</span>🛰️ 元素交互</a><a class="pager-link next" slot="next" href="browser_control_iframe.html"><span class="dir">下一页</span>🛰️ iframe 操作</a></dp-pager>
+    </div>
+    <dp-toc>
+<ul class="toc-list"><li class="toc-h2"><a href="#️️-内容和属性">✅️️ 内容和属性​</a></li><li class="toc-h3"><a href="#-tag">📌 tag​</a></li><li class="toc-h3"><a href="#-html">📌 html​</a></li><li class="toc-h3"><a href="#-inner_html">📌 inner_html​</a></li><li class="toc-h3"><a href="#-text">📌 text​</a></li><li class="toc-h3"><a href="#-raw_text">📌 raw_text​</a></li><li class="toc-h3"><a href="#-texts">📌 texts()​</a></li><li class="toc-h3"><a href="#-comments">📌 comments​</a></li><li class="toc-h3"><a href="#-attrs">📌 attrs​</a></li><li class="toc-h3"><a href="#-attr">📌 attr()​</a></li><li class="toc-h3"><a href="#-property">📌 property()​</a></li><li class="toc-h3"><a href="#-value">📌 value​</a></li><li class="toc-h3"><a href="#-link">📌 link​</a></li><li class="toc-h3"><a href="#-pseudobefore">📌 pseudo.before​</a></li><li class="toc-h3"><a href="#-pseudoafter">📌 pseudo.after​</a></li><li class="toc-h3"><a href="#-style">📌 style()​</a></li><li class="toc-h3"><a href="#-shadow_root">📌 shadow_root​</a></li><li class="toc-h3"><a href="#-child_count">📌 child_count​</a></li><li class="toc-h2"><a href="#️️-大小和位置">✅️️ 大小和位置​</a></li><li class="toc-h3"><a href="#-rectsize">📌 rect.size​</a></li><li class="toc-h3"><a href="#-rectlocation">📌 rect.location​</a></li><li class="toc-h3"><a href="#-rectmidpoint">📌 rect.midpoint​</a></li><li class="toc-h3"><a href="#-rectclick_point">📌 rect.click_point​</a></li><li class="toc-h3"><a href="#-rectcorners">📌 rect.corners​</a></li><li class="toc-h3"><a href="#-rectviewport_corners">📌 rect.viewport_corners​</a></li><li class="toc-h3"><a href="#-rectviewport_location">📌 rect.viewport_location​</a></li><li class="toc-h3"><a href="#-rectviewport_midpoint">📌 rect.viewport_midpoint​</a></li><li class="toc-h3"><a href="#-rectviewport_click_point">📌 rect.viewport_click_point​</a></li><li class="toc-h3"><a href="#-rectscreen_location">📌 rect.screen_location​</a></li><li class="toc-h3"><a href="#-rectscreen_midpoint">📌 rect.screen_midpoint​</a></li><li class="toc-h3"><a href="#-rectscreen_click_point">📌 rect.screen_click_point​</a></li><li class="toc-h3"><a href="#-rectscroll_position">📌 rect.scroll_position​</a></li><li class="toc-h3"><a href="#-xpath">📌 xpath​</a></li><li class="toc-h3"><a href="#-css_path">📌 css_path​</a></li><li class="toc-h2"><a href="#️️-元素列表中批量获取信息">✅️️ 元素列表中批量获取信息​</a></li><li class="toc-h3"><a href="#-示例">📌 示例​</a></li><li class="toc-h3"><a href="#-getattrs">📌 get.attrs()​</a></li><li class="toc-h3"><a href="#-getlinks">📌 get.links()​</a></li><li class="toc-h3"><a href="#-gettexts">📌 get.texts()​</a></li><li class="toc-h2"><a href="#️️-状态信息">✅️️ 状态信息​</a></li><li class="toc-h3"><a href="#timeout">📌timeout​</a></li><li class="toc-h3"><a href="#statesis_in_viewport">📌states.is_in_viewport​</a></li><li class="toc-h3"><a href="#statesis_whole_in_viewport">📌states.is_whole_in_viewport​</a></li><li class="toc-h3"><a href="#statesis_alive">📌states.is_alive​</a></li><li class="toc-h3"><a href="#-statesis_checked">📌 states.is_checked​</a></li><li class="toc-h3"><a href="#-statesis_selected">📌 states.is_selected​</a></li><li class="toc-h3"><a href="#-statesis_enabled">📌 states.is_enabled​</a></li><li class="toc-h3"><a href="#-statesis_displayed">📌 states.is_displayed​</a></li><li class="toc-h3"><a href="#-statesis_covered">📌 states.is_covered​</a></li><li class="toc-h3"><a href="#-statesis_clickable">📌 states.is_clickable​</a></li><li class="toc-h3"><a href="#-stateshas_rect">📌 states.has_rect​</a></li><li class="toc-h2"><a href="#️️-保存元素">✅️️ 保存元素​</a></li><li class="toc-h3"><a href="#-src">📌 src()​</a></li><li class="toc-h3"><a href="#-save">📌 save()​</a></li><li class="toc-h2"><a href="#️️-比较元素">✅️️ 比较元素​</a></li></ul>
+    </dp-toc>
+  </div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🛰️ 获取网页信息 - DrissionPage 文档</title>
+<meta name="generator" content="drissionpage offline doc builder">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/search-index.js"></script>
+<script src="../assets/dp-ui.js"></script>
+</head>
+<body data-prefix="../">
+<div class="layout">
+<dp-sidebar active="browser_control_get_page_info"></dp-sidebar>
+<div class="main">
+  <dp-topbar><span class="crumb" slot="crumb">浏览器控制 / <b>🛰️ 获取网页信息</b></span></dp-topbar>
+  <div class="content">
+    <div class="article">
+      <article>
+<div class="theme-doc-markdown markdown"><header><h1>🛰️ 获取网页信息</h1></header>
+<br>
+<p>成功访问网页后，可使用 Tab 对象属性和方法获取页面信息。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-页面信息">✅️️ 页面信息<a href="#️️-页面信息" class="hash-link" aria-label="✅️️ 页面信息的直接链接" title="✅️️ 页面信息的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-html">📌 <code>html</code><a href="#-html" class="hash-link" aria-label="-html的直接链接" title="-html的直接链接">​</a></h3>
+<p>此属性返回当前页面 html 文本。</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class=""><span class=""><svg width="1rem" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>注意</div><div class=""><p>html 文本不包含<code>&lt;iframe&gt;</code>元素内容。</p></div></div>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-json">📌 <code>json</code><a href="#-json" class="hash-link" aria-label="-json的直接链接" title="-json的直接链接">​</a></h3>
+<p>此属性把请求内容解析成 json。</p>
+<p>假如用浏览器访问会返回 <code>*.json</code> 文件的 url，浏览器会把 json 数据显示出来，这个参数可以把这些数据转换为<code>dict</code>格式。</p>
+<p><strong>返回类型：</strong><code>dict</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-title">📌 <code>title</code><a href="#-title" class="hash-link" aria-label="-title的直接链接" title="-title的直接链接">​</a></h3>
+<p>此属性返回当前页面<code>title</code>文本。</p>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-user_agent">📌 <code>user_agent</code><a href="#-user_agent" class="hash-link" aria-label="-user_agent的直接链接" title="-user_agent的直接链接">​</a></h3>
+<p>此属性返回当前页面 user agent 信息。</p>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-save">📌 <code>save()</code><a href="#-save" class="hash-link" aria-label="-save的直接链接" title="-save的直接链接">​</a></h3>
+<p>把当前页面保存为文件，同时返回保存的内容。</p>
+<p>如果<code>path</code>和<code>name</code>参数都为<code>None</code>，只返回内容，不保存文件。</p>
+<p>Page 对象和 Tab 对象有这个方法。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>path</code></td><td style="text-align:center"><code>str</code><br><code>Path</code></td><td style="text-align:center"><code>None</code></td><td>保存路径，为<code>None</code>且<code>name</code>不为<code>None</code>时保存到当前路径</td></tr><tr><td style="text-align:center"><code>name</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>None</code></td><td>保存的文件名，为<code>None</code>且<code>path</code>不为<code>None</code>时使用 title 值</td></tr><tr><td style="text-align:center"><code>as_pdf</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>为<code>Ture</code>保存为 pdf，否则保存为 mhtml 且忽略<code>kwargs</code>参数</td></tr><tr><td style="text-align:center"><code>**kwargs</code></td><td style="text-align:center">多种</td><td style="text-align:center">无</td><td>pdf 生成参数</td></tr></tbody></table>
+<p>pdf 生成参数包括：<code>landscape</code>, <code>displayHeaderFooter</code>, <code>printBackground</code>, <code>scale</code>, <code>paperWidth</code>, <code>paperHeight</code>, <code>marginTop</code>, <code>marginBottom</code>, <code>marginLeft</code>, <code>marginRight</code>, <code>pageRanges</code>, <code>headerTemplate</code>, <code>footerTemplate</code>, <code>preferCSSPageSize</code>, <code>generateTaggedPDF</code>, <code>generateDocumentOutline</code></p>
+<table><thead><tr><th style="text-align:center">返回类型</th><th style="text-align:center">说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>as_pdf</code>为<code>False</code>时返回 mhtml 文本</td></tr><tr><td style="text-align:center"><code>bytes</code></td><td style="text-align:center"><code>as_pdf</code>为<code>True</code>时返回文件字节数据</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-运行状态信息">✅️️ 运行状态信息<a href="#️️-运行状态信息" class="hash-link" aria-label="✅️️ 运行状态信息的直接链接" title="✅️️ 运行状态信息的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-url">📌 <code>url</code><a href="#-url" class="hash-link" aria-label="-url的直接链接" title="-url的直接链接">​</a></h3>
+<p>此属性返回当前访问的 url。</p>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-tab_id">📌 <code>tab_id</code><a href="#-tab_id" class="hash-link" aria-label="-tab_id的直接链接" title="-tab_id的直接链接">​</a></h3>
+<p><strong>返回类型：</strong><code>str</code></p>
+<p>此属性返回当前标签页的 id。</p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-statesis_loading">📌 <code>states.is_loading</code><a href="#-statesis_loading" class="hash-link" aria-label="-statesis_loading的直接链接" title="-statesis_loading的直接链接">​</a></h3>
+<p>此属性返回页面是否正在加载状态。</p>
+<p><strong>返回类型：</strong><code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-statesis_alive">📌 <code>states.is_alive</code><a href="#-statesis_alive" class="hash-link" aria-label="-statesis_alive的直接链接" title="-statesis_alive的直接链接">​</a></h3>
+<p>此属性返回页面是否仍然可用，标签页已关闭则返回<code>False</code>。</p>
+<p><strong>返回类型：</strong><code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-statesready_state">📌 <code>states.ready_state</code><a href="#-statesready_state" class="hash-link" aria-label="-statesready_state的直接链接" title="-statesready_state的直接链接">​</a></h3>
+<p>此属性返回页面当前加载状态，有 4 种：</p>
+<ul>
+<li><code>'connecting'</code>： 网页连接中</li>
+<li><code>'loading'</code>：表示文档还在加载中</li>
+<li><code>'interactive'</code>：DOM 已加载，但资源未加载完成</li>
+<li><code>'complete'</code>：所有内容已完成加载</li>
+</ul>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-url_available">📌 <code>url_available</code><a href="#-url_available" class="hash-link" aria-label="-url_available的直接链接" title="-url_available的直接链接">​</a></h3>
+<p>此属性以布尔值返回当前链接是否可用。</p>
+<p><strong>返回类型：</strong><code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-stateshas_alert">📌 <code>states.has_alert</code><a href="#-stateshas_alert" class="hash-link" aria-label="-stateshas_alert的直接链接" title="-stateshas_alert的直接链接">​</a></h3>
+<p>此属性以布尔值返回页面是否存在弹出框。</p>
+<p><strong>返回类型：</strong><code>bool</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-窗口信息">✅️️ 窗口信息<a href="#️️-窗口信息" class="hash-link" aria-label="✅️️ 窗口信息的直接链接" title="✅️️ 窗口信息的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectsize">📌 <code>rect.size</code><a href="#-rectsize" class="hash-link" aria-label="-rectsize的直接链接" title="-rectsize的直接链接">​</a></h3>
+<p>以<code>tuple</code>返回页面大小，格式：(宽, 高)。</p>
+<p><strong>返回类型：</strong><code>Tuple[int, int]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectwindow_size">📌 <code>rect.window_size</code><a href="#-rectwindow_size" class="hash-link" aria-label="-rectwindow_size的直接链接" title="-rectwindow_size的直接链接">​</a></h3>
+<p>此属性以<code>tuple</code>返回窗口大小，格式：(宽, 高)。</p>
+<p><strong>返回类型：</strong><code>Tuple[int, int]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectwindow_location">📌 <code>rect.window_location</code><a href="#-rectwindow_location" class="hash-link" aria-label="-rectwindow_location的直接链接" title="-rectwindow_location的直接链接">​</a></h3>
+<p>此属性以<code>tuple</code>返回窗口在屏幕上的坐标，左上角为(0, 0)。</p>
+<p><strong>返回类型：</strong><code>Tuple[int, int]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectwindow_state">📌 <code>rect.window_state</code><a href="#-rectwindow_state" class="hash-link" aria-label="-rectwindow_state的直接链接" title="-rectwindow_state的直接链接">​</a></h3>
+<p>此属性以返回窗口当前状态，有<code>'normal'</code>、<code>'fullscreen'</code>、<code>'maximized'</code>、 <code>'minimized'</code>几种。</p>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectviewport_size">📌 <code>rect.viewport_size</code><a href="#-rectviewport_size" class="hash-link" aria-label="-rectviewport_size的直接链接" title="-rectviewport_size的直接链接">​</a></h3>
+<p>此属性以<code>tuple</code>返回视口大小，不含滚动条，格式：(宽, 高)。</p>
+<p><strong>返回类型：</strong><code>Tuple[int, int]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectviewport_size_with_scrollbar">📌 <code>rect.viewport_size_with_scrollbar</code><a href="#-rectviewport_size_with_scrollbar" class="hash-link" aria-label="-rectviewport_size_with_scrollbar的直接链接" title="-rectviewport_size_with_scrollbar的直接链接">​</a></h3>
+<p>此属性以<code>tuple</code>返回浏览器窗口大小，含滚动条，格式：(宽, 高)。</p>
+<p><strong>返回类型：</strong><code>Tuple[int, int]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectpage_location">📌 <code>rect.page_location</code><a href="#-rectpage_location" class="hash-link" aria-label="-rectpage_location的直接链接" title="-rectpage_location的直接链接">​</a></h3>
+<p>此属性以<code>tuple</code>返回页面左上角在屏幕中坐标，左上角为(0, 0)。</p>
+<p><strong>返回类型：</strong><code>Tuple[int, int]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectviewport_location">📌 <code>rect.viewport_location</code><a href="#-rectviewport_location" class="hash-link" aria-label="-rectviewport_location的直接链接" title="-rectviewport_location的直接链接">​</a></h3>
+<p>此属性以<code>tuple</code>返回视口在屏幕中坐标，左上角为(0, 0)。</p>
+<p><strong>返回类型：</strong><code>Tuple[int, int]</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-rectscroll_position">📌 <code>rect.scroll_position</code><a href="#-rectscroll_position" class="hash-link" aria-label="-rectscroll_position的直接链接" title="-rectscroll_position的直接链接">​</a></h3>
+<p>此属性返回页面滚动条位置，格式：(x, y)。</p>
+<p><strong>类型：</strong><code>Tuple[float, float]</code></p>
+<hr>
+
+<br>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-配置参数信息">✅️️ 配置参数信息<a href="#️️-配置参数信息" class="hash-link" aria-label="✅️️ 配置参数信息的直接链接" title="✅️️ 配置参数信息的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-timeout">📌 <code>timeout</code><a href="#-timeout" class="hash-link" aria-label="-timeout的直接链接" title="-timeout的直接链接">​</a></h3>
+<p>此属性为整体默认超时时间（秒），包括元素查找、点击、处理提示框、列表选择等需要用到超时设置的地方，都以这个数据为默认值。默认为<code>10</code>。</p>
+<p><strong>返回类型：</strong><code>int</code>、<code>float</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-timeouts">📌 <code>timeouts</code><a href="#-timeouts" class="hash-link" aria-label="-timeouts的直接链接" title="-timeouts的直接链接">​</a></h3>
+<p>此属性以字典方式返回三种超时时间（秒）。</p>
+<ul>
+<li><code>'base'</code>：与<code>timeout</code>属性是同一个值</li>
+<li><code>'page_load'</code>：用于等待页面加载</li>
+<li><code>'script'</code>：用于等待脚本执行</li>
+</ul>
+<p><strong>返回类型：</strong><code>dict</code></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">print</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">tab</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">timeouts</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<p><strong>输出：</strong></p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">{'base': 10, 'page_load': 30.0, 'script': 30.0}</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-retry_times">📌 <code>retry_times</code><a href="#-retry_times" class="hash-link" aria-label="-retry_times的直接链接" title="-retry_times的直接链接">​</a></h3>
+<p>此属性为网络连接失败时的重试次数，默认为<code>3</code>。</p>
+<p><strong>返回类型：</strong><code>int</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-retry_interval">📌 <code>retry_interval</code><a href="#-retry_interval" class="hash-link" aria-label="-retry_interval的直接链接" title="-retry_interval的直接链接">​</a></h3>
+<p>此属性为网络连接失败时的重试等待间隔秒数，默认为<code>2</code>。</p>
+<p><strong>返回类型：</strong><code>int</code>、<code>float</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-load_mode">📌 <code>load_mode</code><a href="#-load_mode" class="hash-link" aria-label="-load_mode的直接链接" title="-load_mode的直接链接">​</a></h3>
+<p>此属性返回页面加载策略，有 3 种：</p>
+<ul>
+<li><code>'normal'</code>：等待页面所有资源完成加载</li>
+<li><code>'eager'</code>：DOM 加载完成即停止</li>
+<li><code>'none'</code>：页面完成连接即停止</li>
+</ul>
+<p><strong>返回类型：</strong><code>str</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-cookies-和缓存信息">✅️️ cookies 和缓存信息<a href="#️️-cookies-和缓存信息" class="hash-link" aria-label="✅️️ cookies 和缓存信息的直接链接" title="✅️️ cookies 和缓存信息的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-cookies">📌 <code>cookies()</code><a href="#-cookies" class="hash-link" aria-label="-cookies的直接链接" title="-cookies的直接链接">​</a></h3>
+<p>此方法以列表方式返回 cookies 信息。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>all_domains</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>是否返回所有 cookies，为<code>False</code>只返回当前 url 的</td></tr><tr><td style="text-align:center"><code>all_info</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>返回的 cookies 是否包含所有信息，<code>False</code>时只包含<code>name</code>、<code>value</code>、<code>domain</code>信息</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>CookiesList</code></td><td>cookies 组成的列表</td></tr></tbody></table>
+<p><strong>示例：</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> Chromium</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">tab </span><span class="token operator">=</span><span class="token plain"> Chromium</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">latest_tab</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">tab</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">get</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'https://www.baidu.com'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">for</span><span class="token plain"> i </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">in</span><span class="token plain"> tab</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">cookies</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token punctuation" style="color: rgb(248, 248, 242);">:</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">    </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">print</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">i</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<p><strong>输出：</strong></p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">{'domain': '.baidu.com', 'domain_specified': True, ......}</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">......</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-指定返回类型">📌 指定返回类型<a href="#-指定返回类型" class="hash-link" aria-label="📌 指定返回类型的直接链接" title="📌 指定返回类型的直接链接">​</a></h3>
+<p><code>cookies()</code>方法返回的列表可转换为其它指定格式。</p>
+<ul>
+<li><code>cookies().as_str()</code>：<code>'name1=value1; name2=value2'</code>格式的字符串</li>
+<li><code>cookies().as_dict()</code>：<code>{name1: value1, name2: value2}</code>格式的字典</li>
+<li><code>cookies().as_json()</code>：json 格式的字符串</li>
+</ul>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class=""><span class=""><svg width="1rem" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>说明</div><div class=""><p><code>as_str()</code>和<code>as_dict()</code>都只会保留<code>'name'</code>和<code>'value'</code>字段。</p></div></div>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-session_storage">📌 <code>session_storage()</code><a href="#-session_storage" class="hash-link" aria-label="-session_storage的直接链接" title="-session_storage的直接链接">​</a></h3>
+<p>此方法用于获取 sessionStorage 信息，可获取全部或单个项。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>item</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>None</code></td><td>要获取的项目，为<code>None</code>则返回全部项目组成的字典</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>dict</code></td><td><code>item</code>参数为<code>None</code>时返回所有项目</td></tr><tr><td style="text-align:center"><code>str</code></td><td>指定<code>item</code>时返回该项目内容</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-local_storage">📌 <code>local_storage()</code><a href="#-local_storage" class="hash-link" aria-label="-local_storage的直接链接" title="-local_storage的直接链接">​</a></h3>
+<p>此方法用于获取 localStorage 信息，可获取全部或单个项。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>item</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>None</code></td><td>要获取的项目，为<code>None</code>则返回全部项目组成的字典</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>dict</code></td><td><code>item</code>参数为<code>None</code>时返回所有项目</td></tr><tr><td style="text-align:center"><code>str</code></td><td>指定<code>item</code>时返回该项目内容</td></tr></tbody></table>
+<hr></div>
+      </article>
+      <dp-pager><a class="pager-link prev" slot="prev" href="browser_control_page_operation.html"><span class="dir">上一页</span>🛰️ 页面交互</a><a class="pager-link next" slot="next" href="browser_control_get_elements_intro.html"><span class="dir">下一页</span>🔦 概述</a></dp-pager>
+    </div>
+    <dp-toc>
+<ul class="toc-list"><li class="toc-h2"><a href="#️️-页面信息">✅️️ 页面信息​</a></li><li class="toc-h3"><a href="#-html">📌 html​</a></li><li class="toc-h3"><a href="#-json">📌 json​</a></li><li class="toc-h3"><a href="#-title">📌 title​</a></li><li class="toc-h3"><a href="#-user_agent">📌 user_agent​</a></li><li class="toc-h3"><a href="#-save">📌 save()​</a></li><li class="toc-h2"><a href="#️️-运行状态信息">✅️️ 运行状态信息​</a></li><li class="toc-h3"><a href="#-url">📌 url​</a></li><li class="toc-h3"><a href="#-tab_id">📌 tab_id​</a></li><li class="toc-h3"><a href="#-statesis_loading">📌 states.is_loading​</a></li><li class="toc-h3"><a href="#-statesis_alive">📌 states.is_alive​</a></li><li class="toc-h3"><a href="#-statesready_state">📌 states.ready_state​</a></li><li class="toc-h3"><a href="#-url_available">📌 url_available​</a></li><li class="toc-h3"><a href="#-stateshas_alert">📌 states.has_alert​</a></li><li class="toc-h2"><a href="#️️-窗口信息">✅️️ 窗口信息​</a></li><li class="toc-h3"><a href="#-rectsize">📌 rect.size​</a></li><li class="toc-h3"><a href="#-rectwindow_size">📌 rect.window_size​</a></li><li class="toc-h3"><a href="#-rectwindow_location">📌 rect.window_location​</a></li><li class="toc-h3"><a href="#-rectwindow_state">📌 rect.window_state​</a></li><li class="toc-h3"><a href="#-rectviewport_size">📌 rect.viewport_size​</a></li><li class="toc-h3"><a href="#-rectviewport_size_with_scrollbar">📌 rect.viewport_size_with_scrollbar​</a></li><li class="toc-h3"><a href="#-rectpage_location">📌 rect.page_location​</a></li><li class="toc-h3"><a href="#-rectviewport_location">📌 rect.viewport_location​</a></li><li class="toc-h3"><a href="#-rectscroll_position">📌 rect.scroll_position​</a></li><li class="toc-h2"><a href="#️️-配置参数信息">✅️️ 配置参数信息​</a></li><li class="toc-h3"><a href="#-timeout">📌 timeout​</a></li><li class="toc-h3"><a href="#-timeouts">📌 timeouts​</a></li><li class="toc-h3"><a href="#-retry_times">📌 retry_times​</a></li><li class="toc-h3"><a href="#-retry_interval">📌 retry_interval​</a></li><li class="toc-h3"><a href="#-load_mode">📌 load_mode​</a></li><li class="toc-h2"><a href="#️️-cookies-和缓存信息">✅️️ cookies 和缓存信息​</a></li><li class="toc-h3"><a href="#-cookies">📌 cookies()​</a></li><li class="toc-h3"><a href="#-指定返回类型">📌 指定返回类型​</a></li><li class="toc-h3"><a href="#-session_storage">📌 session_storage()​</a></li><li class="toc-h3"><a href="#-local_storage">📌 local_storage()​</a></li></ul>
+    </dp-toc>
+  </div>
+</div>
+</div>
+</body>
+</html>

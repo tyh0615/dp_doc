@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>⚙️ 异常的使用 - DrissionPage 文档</title>
+  <meta name="generator" content="drissionpage offline doc builder">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script src="../assets/search-index.js"></script>
+  <script src="../assets/dp-ui.js"></script>
+</head>
+
+<body data-prefix="../">
+  <div class="layout">
+    <dp-sidebar active="advance_errors"></dp-sidebar>
+    <div class="main">
+      <dp-topbar><span class="crumb" slot="crumb">进阶使用 / <b>⚙️ 异常的使用</b></span></dp-topbar>
+      <div class="content">
+        <div class="article">
+          <article>
+            <div class="theme-doc-markdown markdown">
+              <header>
+                <h1>⚙️ 异常的使用</h1>
+              </header>
+              <br>
+              <p>本节介绍 DrissionPage 中的自定义异常。</p>
+              <h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-导入">✅️️ 导入<a href="#️️-导入" class="hash-link"
+                  aria-label="✅️️ 导入的直接链接" title="✅️️ 导入的直接链接">​</a></h2>
+              <p>各种异常放在<code>DrissionPage.errors</code>路径中。</p>
+              <div class="language-python codeBlockContainer_Ckt0 theme-code-block"
+                style="--prism-color: #F8F8F2; --prism-background-color: #282A36;">
+                <div class="codeBlockContent_biex">
+                  <pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar"
+                    style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">errors </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> </span><span class="token operator">*</span><br></span></code></pre>
+                  <div class="buttonGroup__atx"></div>
+                </div>
+              </div>
+              <h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-异常介绍">✅️️ 异常介绍<a href="#️️-异常介绍" class="hash-link"
+                  aria-label="✅️️ 异常介��绍的直接链接" title="✅️️ 异常介绍的直接链接">​</a></h2>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-elementnotfounderror">📌
+                <code>ElementNotFoundError</code><a href="#-elementnotfounderror" class="hash-link"
+                  aria-label="-elementnotfounderror的直接链接" title="-elementnotfounderror的直接链接">​</a>
+              </h3>
+              <p>找不到元素时抛出。</p>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-alertexistserror">📌 <code>AlertExistsError</code><a
+                  href="#-alertexistserror" class="hash-link" aria-label="-alertexistserror的直接链接"
+                  title="-alertexistserror的直接链接">​</a></h3>
+              <p>执行 JS 或调用通过 JS 实现的功能时，若存在未处理的弹出框则抛出。</p>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-contextlosterror">📌 <code>ContextLostError</code><a
+                  href="#-contextlosterror" class="hash-link" aria-label="-contextlosterror的直接链接"
+                  title="-contextlosterror的直接链接">​</a></h3>
+              <p>页面被刷新后仍调用其中的元素时抛出。</p>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-elementlosterror">📌 <code>ElementLostError</code><a
+                  href="#-elementlosterror" class="hash-link" aria-label="-elementlosterror的直接链接"
+                  title="-elementlosterror的直接链接">​</a></h3>
+              <p>元素因页面或自身被刷新而失效后，仍对其进行调用时抛出。</p>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-cdperror">📌 <code>CDPError</code><a href="#-cdperror"
+                  class="hash-link" aria-label="-cdperror的直接链接" title="-cdperror的直接链接">​</a></h3>
+              <p>调用 cdp 方法产生异常时抛出。</p>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-pagedisconnectederror">📌
+                <code>PageDisconnectedError</code><a href="#-pagedisconnectederror" class="hash-link"
+                  aria-label="-pagedisconnectederror的直接链接" title="-pagedisconnectederror的直接链接">​</a>
+              </h3>
+              <p>页面关闭或连接断开后仍调用其功能时抛出。</p>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-javascripterror">📌 <code>JavaScriptError</code><a
+                  href="#-javascripterror" class="hash-link" aria-label="-javascripterror的直接链接"
+                  title="-javascripterror的直接链接">​</a></h3>
+              <p>JavaScript 运行错误时抛出。</p>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-norecterror">📌 <code>NoRectError</code><a
+                  href="#-norecterror" class="hash-link" aria-label="-norecterror的直接链接" title="-norecterror的直接链接">​</a>
+              </h3>
+              <p>对没有大小和位置信息的元素获取这些信息时抛出。</p>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-browserconnecterror">📌
+                <code>BrowserConnectError</code><a href="#-browserconnecterror" class="hash-link"
+                  aria-label="-browserconnecterror的直接链接" title="-browserconnecterror的直接链接">​</a>
+              </h3>
+              <p>连接浏览器出错时抛出。</p>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-noresourceerror">📌 <code>NoResourceError</code><a
+                  href="#-noresourceerror" class="hash-link" aria-label="-noresourceerror的直接链接"
+                  title="-noresourceerror的直接链接">​</a></h3>
+              <p>浏览器元素<code>src()</code>和<code>save()</code>获取资源失败时抛出。</p>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-cannotclickerror">📌 <code>CanNotClickError</code><a
+                  href="#-cannotclickerror" class="hash-link" aria-label="-cannotclickerror的直接链接"
+                  title="-cannotclickerror的直接链接">​</a></h3>
+              <hr>
+              <p>点击元素时如元素不可点击，且设置允许抛出时抛出。</p>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-getdocumenterror">📌 <code>GetDocumentError</code><a
+                  href="#-getdocumenterror" class="hash-link" aria-label="-getdocumenterror的直接链接"
+                  title="-getdocumenterror的直接链接">​</a></h3>
+              <p>获取页面文档失败时抛出</p>
+              <hr>
+              <p>获取页面文档失败时抛出。</p>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-waittimeouterror">📌 <code>WaitTimeoutError</code><a
+                  href="#-waittimeouterror" class="hash-link" aria-label="-waittimeouterror的直接链接"
+                  title="-waittimeouterror的直接链接">​</a></h3>
+              <p>自动等待失败，且设置允许抛出时抛出。</p>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-incorrecturlerror">📌 <code>IncorrectURLError</code><a
+                  href="#-incorrecturlerror" class="hash-link" aria-label="-incorrecturlerror的直接链接"
+                  title="-incorrecturlerror的直接链接">​</a></h3>
+              <p>访问格式不正确的 url 时抛出。</p>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-storageerror">📌 <code>StorageError</code><a
+                  href="#-storageerror" class="hash-link" aria-label="-storageerror的直接链接"
+                  title="-storageerror的直接链接">​</a></h3>
+              <p>操作数据时，如网站禁止操作则抛出。</p>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-cookieformaterror">📌 <code>CookieFormatError</code><a
+                  href="#-cookieformaterror" class="hash-link" aria-label="-cookieformaterror的直接链接"
+                  title="-cookieformaterror的直接链接">​</a></h3>
+              <p>导入 cookie 时如格式不正确则抛出。</p>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-locatorerror">📌 <code>LocatorError</code><a
+                  href="#-locatorerror" class="hash-link" aria-label="-locatorerror的直接链接"
+                  title="-locatorerror的直接链接">​</a></h3>
+              <p>传入的定位符格式不正确时抛出。</p>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-unknownerror">📌 <code>UnknownError</code><a
+                  href="#-unknownerror" class="hash-link" aria-label="-unknownerror的直接链接"
+                  title="-unknownerror的直接链接">​</a></h3>
+              <p>发生未知错误时抛出。</p>
+
+              <br>
+            </div>
+          </article>
+          <dp-pager><a class="pager-link prev" slot="prev" href="advance_commands.html"><span class="dir">上一页</span>⚙️
+              命令行的使用</a><a class="pager-link next" slot="next" href="advance_accelerate.html"><span
+                class="dir">下一页</span>⚙️ 数据读取加速</a></dp-pager>
+        </div>
+        <dp-toc>
+          <ul class="toc-list">
+            <li class="toc-h2"><a href="#️️-导入">✅️️ 导入​</a></li>
+            <li class="toc-h2"><a href="#️️-异常介绍">✅️️ 异常介绍​</a></li>
+            <li class="toc-h3"><a href="#-elementnotfounderror">📌 ElementNotFoundError​</a></li>
+            <li class="toc-h3"><a href="#-alertexistserror">📌 AlertExistsError​</a></li>
+            <li class="toc-h3"><a href="#-contextlosterror">📌 ContextLostError​</a></li>
+            <li class="toc-h3"><a href="#-elementlosterror">📌 ElementLostError​</a></li>
+            <li class="toc-h3"><a href="#-cdperror">📌 CDPError​</a></li>
+            <li class="toc-h3"><a href="#-pagedisconnectederror">📌 PageDisconnectedError​</a></li>
+            <li class="toc-h3"><a href="#-javascripterror">📌 JavaScriptError​</a></li>
+            <li class="toc-h3"><a href="#-norecterror">📌 NoRectError​</a></li>
+            <li class="toc-h3"><a href="#-browserconnecterror">📌 BrowserConnectError​</a></li>
+            <li class="toc-h3"><a href="#-noresourceerror">📌 NoResourceError​</a></li>
+            <li class="toc-h3"><a href="#-cannotclickerror">📌 CanNotClickError​</a></li>
+            <li class="toc-h3"><a href="#-getdocumenterror">📌 GetDocumentError​</a></li>
+            <li class="toc-h3"><a href="#-waittimeouterror">📌 WaitTimeoutError​</a></li>
+            <li class="toc-h3"><a href="#-incorrecturlerror">📌 IncorrectURLError​</a></li>
+            <li class="toc-h3"><a href="#-storageerror">📌 StorageError​</a></li>
+            <li class="toc-h3"><a href="#-cookieformaterror">📌 CookieFormatError​</a></li>
+            <li class="toc-h3"><a href="#-locatorerror">📌 LocatorError​</a></li>
+            <li class="toc-h3"><a href="#-unknownerror">📌 UnknownError​</a></li>
+          </ul>
+        </dp-toc>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

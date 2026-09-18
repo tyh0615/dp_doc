@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>⚙️ 配置文件的使用 - DrissionPage 文档</title>
+  <meta name="generator" content="drissionpage offline doc builder">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script src="../assets/search-index.js"></script>
+  <script src="../assets/dp-ui.js"></script>
+</head>
+
+<body data-prefix="../">
+  <div class="layout">
+    <dp-sidebar active="advance_ini"></dp-sidebar>
+    <div class="main">
+      <dp-topbar><span class="crumb" slot="crumb">进阶使用 / <b>⚙️ 配置文件的使用</b></span></dp-topbar>
+      <div class="content">
+        <div class="article">
+          <article>
+            <div class="theme-doc-markdown markdown">
+              <header>
+                <h1>⚙️ 配置文件的使用</h1>
+              </header>
+              <br>
+              <p>本库使用 ini 文件记录浏览器或<code>Session</code>对象的启动配置。便于配置复用，免于在代码中加入繁琐的配置信息。<br>
+                <!-- -->默认情况下，页面对象启动时自动加载文件中的配置信息。<br>
+                <!-- -->也可以在默认配置基础上用简单的方法再次修改，再保存到 ini 文件。<br>
+                <!-- -->也可以保存多个 ini 文件，按不同项目需要调用。</p>
+              <div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning">
+                <div class=""><span class=""><svg width="1rem" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd"
+                        d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z">
+                      </path>
+                    </svg></span>注意</div>
+                <div class="">
+                  <ul>
+                    <li>ini 文件仅用于管理启动配置，页面对象创建后再修改 ini 文件是没用的。</li>
+                    <li>如果是接管已打开的浏览器，这些设置也没有用。</li>
+                    <li>每次升级本库，ini 文件都会被重置，可另存到其它路径以免重置。</li>
+                  </ul>
+                </div>
+              </div>
+              <h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-ini-文件内容">✅️️ ini 文件内容<a href="#️️-ini-文件内容"
+                  class="hash-link" aria-label="✅️️ ini 文件内容的直接链接" title="✅️️ ini 文件内容的直接链接">​</a></h2>
+              <p>ini 文件初始内容如下。</p>
+              <div class="language-ini codeBlockContainer_Ckt0 theme-code-block"
+                style="--prism-color: #F8F8F2; --prism-background-color: #282A36;">
+                <div class="codeBlockContent_biex">
+                  <pre tabindex="0" class="prism-code language-ini codeBlock_bY9V thin-scrollbar"
+                    style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">[paths]</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">download_path = </span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">tmp_path = </span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">[chromium_options]</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">address = 127.0.0.1:9222</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">browser_path = chrome</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">arguments = ['--no-default-browser-check', '--disable-suggestions-ui', '--no-first-run', '--disable-infobars', '--disable-popup-blocking', '--hide-crash-restore-bubble', '--disable-features=PrivacySandboxSettings4']</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">extensions = []</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">prefs = {'profile.default_content_settings.popups': 0, 'profile.default_content_setting_values': {'notifications': 2}}</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">flags = {}</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">load_mode = normal</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">user = Default</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">auto_port = False</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">system_user_path = False</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">existing_only = False</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">new_env = False</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">[session_options]</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.1.2 Safari/603.3.8', 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'connection': 'keep-alive', 'accept-charset': 'GB2312,utf-8;q=0.7,*;q=0.7'}</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">[timeouts]</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">base = 10</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page_load = 30</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">script = 30</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">[proxies]</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">http =</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">https = </span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">[others]</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">retry_times = 3</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">retry_interval = 2</span><br></span></code></pre>
+                  <div class="buttonGroup__atx"></div>
+                </div>
+              </div>
+              <hr>
+              <h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-文件位置">✅️️ 文件位置<a href="#️️-文件位置" class="hash-link"
+                  aria-label="✅️️ 文件位置的直接链接" title="✅️️ 文件位置的直接链接">​</a></h2>
+              <p>默认配置文件存放在 DrissionPage 库 <code>'_configs'</code> 文件夹下，文件名为 configs.ini。<br>
+                <!-- -->用户可另存其它配置文件，或从另存的文件读取配置，但默认文件的位置和名称不会改变。</p>
+              <hr>
+              <h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-使用默认配置文件启动">✅️️ 使用默认配置文件启动<a href="#️️-使用默认配置文件启动"
+                  class="hash-link" aria-label="✅️️ 使用默认配置文件启动的直接链接" title="✅️️ 使用默认配置文件启动的直接链接">​</a></h2>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-使用页面对象自动加载">📌 使用页面对象自动加载<a href="#-使用页面对象自动加载"
+                  class="hash-link" aria-label="📌 使用页面对象自动加载的直接链接" title="📌 使用页面对象自动加载的直接链接">​</a></h3>
+              <p>这是默认启动方式。</p>
+              <div class="language-python codeBlockContainer_Ckt0 theme-code-block"
+                style="--prism-color: #F8F8F2; --prism-background-color: #282A36;">
+                <div class="codeBlockContent_biex">
+                  <pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar"
+                    style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> Chromium</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">browser </span><span class="token operator">=</span><span class="token plain"> Chromium</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre>
+                  <div class="buttonGroup__atx"></div>
+                </div>
+              </div>
+              <hr>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-使用配置对象加载">📌 使用配置对象加载<a href="#-使用配置对象加载"
+                  class="hash-link" aria-label="📌 使用配置对象加载的直接链接" title="📌 使用配置对象加载的直接链接">​</a></h3>
+              <p>这种方式一般用于加载配置后需要进一步修改。</p>
+              <div class="language-python codeBlockContainer_Ckt0 theme-code-block"
+                style="--prism-color: #F8F8F2; --prism-background-color: #282A36;">
+                <div class="codeBlockContent_biex">
+                  <pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar"
+                    style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> ChromiumOptions</span><span class="token punctuation" style="color: rgb(248, 248, 242);">,</span><span class="token plain"> SessionOptions</span><span class="token punctuation" style="color: rgb(248, 248, 242);">,</span><span class="token plain"> Chromium</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">co </span><span class="token operator">=</span><span class="token plain"> ChromiumOptions</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">ini_path</span><span class="token operator">=</span><span class="token string" style="color: rgb(255, 121, 198);">r'D:\setting.ini'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">so </span><span class="token operator">=</span><span class="token plain"> SessionOptions</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">ini_path</span><span class="token operator">=</span><span class="token string" style="color: rgb(255, 121, 198);">r'D:\setting.ini'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">browser </span><span class="token operator">=</span><span class="token plain"> Chromium</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">addr_or_opts</span><span class="token operator">=</span><span class="token plain">co</span><span class="token punctuation" style="color: rgb(248, 248, 242);">,</span><span class="token plain"> session_options</span><span class="token operator">=</span><span class="token plain">so</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre>
+                  <div class="buttonGroup__atx"></div>
+                </div>
+              </div>
+              <hr>
+
+              <br>
+              <h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-保存另存-ini-文件">✅️️ 保存/另存 ini 文件<a
+                  href="#️️-保存另存-ini-文件" class="hash-link" aria-label="✅️️ 保存/另存 ini 文件的直接链接"
+                  title="✅️️ 保存/另存 ini 文件的直接链接">​</a></h2>
+              <div class="language-python codeBlockContainer_Ckt0 theme-code-block"
+                style="--prism-color: #F8F8F2; --prism-background-color: #282A36;">
+                <div class="codeBlockContent_biex">
+                  <pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar"
+                    style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> ChromiumOptions</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">co </span><span class="token operator">=</span><span class="token plain"> ChromiumOptions</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token comment" style="color: rgb(98, 114, 164);"># 修改一些设置</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">co</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">no_imgs</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token comment" style="color: rgb(98, 114, 164);"># 保存到当前打开的ini文件</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">co</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">save</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token comment" style="color: rgb(98, 114, 164);"># 保存到指定位置的配置文件</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">co</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">save</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">r'D:\config1.ini'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token comment" style="color: rgb(98, 114, 164);"># 保存到默认配置文件</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">co</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">save_to_default</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre>
+                  <div class="buttonGroup__atx"></div>
+                </div>
+              </div>
+              <hr>
+              <h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-在项目路径使用-ini-文件">✅️️ 在项目路径使用 ini 文件<a
+                  href="#️️-在项目路径使用-ini-文件" class="hash-link" aria-label="✅️️ 在项目路径使用 ini 文件的直接链接"
+                  title="✅️️ 在项目路径使用 ini 文件的直接链接">​</a></h2>
+              <p>默认 ini 文件存放在 DrissionPage 安装目录下，修改要通过代码进行，给调试带来不便。</p>
+              <p>因此，提供了一个便捷的方法把默认 ini 文件复制到当前项目文件夹，并且程序会优先使用项目文件夹下的 ini 文件进行初始化配置。</p>
+              <p>这样开发者可方便地手动更改配置。项目打包也可以直接打包而不会造成找不到文件问题。</p>
+              <p>复制到项目下的 ini 文件名为<code>'dp_configs.ini'</code>，程序会默认读取这个文件的配置。</p>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-configs_to_here">📌 <code>configs_to_here()</code><a
+                  href="#-configs_to_here" class="hash-link" aria-label="-configs_to_here的直接链接"
+                  title="-configs_to_here的直接链接">​</a></h3>
+              <p>此方法放在 <code>DrissionPage.common</code> 路径中，用于把默认 ini 文件复制到当前路径，并命名为<code>'dp_configs.ini'</code>。</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th style="text-align:center">参数名称</th>
+                    <th style="text-align:center">类型</th>
+                    <th style="text-align:center">默认值</th>
+                    <th>说明</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="text-align:center"><code>save_name</code></td>
+                    <td style="text-align:center"><code>str</code></td>
+                    <td style="text-align:center"><code>None</code></td>
+                    <td>指定文件名，为<code>None</code>则命名为<code>'dp_configs.ini'</code></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p><strong>返回：</strong><code>None</code></p>
+              <p><strong>示例：</strong></p>
+              <p>在项目新建一个 py 文件，输入以下内容并运行</p>
+              <div class="language-python codeBlockContainer_Ckt0 theme-code-block"
+                style="--prism-color: #F8F8F2; --prism-background-color: #282A36;">
+                <div class="codeBlockContent_biex">
+                  <pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar"
+                    style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">common </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> configs_to_here</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">configs_to_here</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre>
+                  <div class="buttonGroup__atx"></div>
+                </div>
+              </div>
+              <p>之后，项目文件夹会多出一个<code>'dp_configs.ini'</code>文件。页面对象初始化时会优先读取这个文件。</p>
+              <h3 class="anchor anchorWithStickyNavbar_LWe7" id="-用命令行复制">📌 用命令行复制<a href="#-用命令行复制" class="hash-link"
+                  aria-label="📌 用命令行复制的直接链接" title="📌 用命令行复制的直接链接">​</a></h3>
+              <p>除了用<code>configs_to_here()</code>方法复制 ini 文件到项目文件夹，还可以用命令行方式复制。</p>
+              <p>在项目文件夹路径下运行以下命令即可：</p>
+              <div class="language-shell codeBlockContainer_Ckt0 theme-code-block"
+                style="--prism-color: #F8F8F2; --prism-background-color: #282A36;">
+                <div class="codeBlockContent_biex">
+                  <pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar"
+                    style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">dp --configs-to-here</span><br></span></code></pre>
+                  <div class="buttonGroup__atx"></div>
+                </div>
+              </div>
+              <p>效果和<code>configs_to_here()</code>一致，只是不能指定文件名。</p>
+            </div>
+          </article>
+          <dp-pager><a class="pager-link prev" slot="prev" href="download_browser.html"><span class="dir">上一页</span>⤵️
+              浏览器下载</a><a class="pager-link next" slot="next" href="advance_settings.html"><span
+                class="dir">下一页</span>⚙️ 全局设置</a></dp-pager>
+        </div>
+        <dp-toc>
+          <ul class="toc-list">
+            <li class="toc-h2"><a href="#️️-ini-文件内容">✅️️ ini 文件内容​</a></li>
+            <li class="toc-h2"><a href="#️️-文件位置">✅️️ 文件位置​</a></li>
+            <li class="toc-h2"><a href="#️️-使用默认配置文件启动">✅️️ 使用默认配置文件启动​</a></li>
+            <li class="toc-h3"><a href="#-使用页面对象自动加载">📌 使用页面对象自动加载​</a></li>
+            <li class="toc-h3"><a href="#-使用配置对象加载">📌 使用配置对象加载​</a></li>
+            <li class="toc-h2"><a href="#️️-保存另存-ini-文件">✅️️ 保存/另存 ini 文件​</a></li>
+            <li class="toc-h2"><a href="#️️-在项目路径使用-ini-文件">✅️️ 在项目路径使用 ini 文件​</a></li>
+            <li class="toc-h3"><a href="#-configs_to_here">📌 configs_to_here()​</a></li>
+            <li class="toc-h3"><a href="#-用命令行复制">📌 用命令行复制​</a></li>
+          </ul>
+        </dp-toc>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

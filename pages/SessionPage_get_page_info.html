@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🛩️ 获取页面信息 - DrissionPage 文档</title>
+<meta name="generator" content="drissionpage offline doc builder">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/search-index.js"></script>
+<script src="../assets/dp-ui.js"></script>
+</head>
+<body data-prefix="../">
+<div class="layout">
+<dp-sidebar active="SessionPage_get_page_info"></dp-sidebar>
+<div class="main">
+  <dp-topbar><span class="crumb" slot="crumb">SessionPage / <b>🛩️ 获取页面信息</b></span></dp-topbar>
+  <div class="content">
+    <div class="article">
+      <article>
+<div class="theme-doc-markdown markdown"><header><h1>🛩️ 获取页面信息</h1></header>
+<br>
+<p>成功访问网页后，可使用<code>SessionPage</code>对象自身属性和方法获取页面信息。</p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> SessionPage</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page </span><span class="token operator">=</span><span class="token plain"> SessionPage</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">get</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'http://www.baidu.com'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token comment" style="color: rgb(98, 114, 164);"># 获取页面标题</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">print</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">title</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token comment" style="color: rgb(98, 114, 164);"># 获取页面html</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">print</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">html</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<p><strong>输出：</strong></p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">百度一下，你就知道</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">&lt;!DOCTYPE html&gt;</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">&lt;!--STATUS OK--&gt;&lt;html&gt; &lt;head&gt;&lt;meta http-equi...</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-页面信息">✅️️ 页面信息<a href="#️️-页面信息" class="hash-link" aria-label="✅️️ 页面信息的直接链接" title="✅️️ 页面信息的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-url">📌 <code>url</code><a href="#-url" class="hash-link" aria-label="-url的直接链接" title="-url的直接链接">​</a></h3>
+<p>此属性返回当前访问的 url。</p>
+<p><strong>类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-url_available">📌 <code>url_available</code><a href="#-url_available" class="hash-link" aria-label="-url_available的直接链接" title="-url_available的直接链接">​</a></h3>
+<p>此属性以布尔值返回当前链接是否可用。</p>
+<p><strong>类型：</strong><code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-title">📌 <code>title</code><a href="#-title" class="hash-link" aria-label="-title的直接链接" title="-title的直接链接">​</a></h3>
+<p>此属性返回当前页面<code>title</code>文本。</p>
+<p><strong>类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-raw_data">📌 <code>raw_data</code><a href="#-raw_data" class="hash-link" aria-label="-raw_data的直接链接" title="-raw_data的直接链接">​</a></h3>
+<p>此属性返回访问到的元素数据，即<code>Response</code>对象的<code>content</code>属性。</p>
+<p><strong>类型：</strong><code>bytes</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-html">📌 <code>html</code><a href="#-html" class="hash-link" aria-label="-html的直接链接" title="-html的直接链接">​</a></h3>
+<p>此属性返回当前页面 html 文本。</p>
+<p><strong>类型：</strong><code>str</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-json">📌 <code>json</code><a href="#-json" class="hash-link" aria-label="-json的直接链接" title="-json的直接链接">​</a></h3>
+<p>此属性把返回内容解析成 json。<br>
+<!-- -->比如请求接口时，若返回内容是 json 格式，用<code>html</code>属性获取的话会得到一个字符串，用此属性获取可将其解析成<code>dict</code>。
+支持访问 <code>*.json</code> 文件，也支持 API 返回的json字符串。</p>
+<p><strong>类型：</strong><code>dict</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-user_agent">📌 <code>user_agent</code><a href="#-user_agent" class="hash-link" aria-label="-user_agent的直接链接" title="-user_agent的直接链接">​</a></h3>
+<p>此属性返回当前页面 user_agent 信息。</p>
+<p><strong>类型：</strong><code>str</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-运行参数信息">✅️️ 运行参数信息<a href="#️️-运行参数信息" class="hash-link" aria-label="✅️️ 运行参数信息的直接链接" title="✅️️ 运行参数信息的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-timeout">📌 <code>timeout</code><a href="#-timeout" class="hash-link" aria-label="-timeout的直接链接" title="-timeout的直接链接">​</a></h3>
+<p>此属性返回网络请求超时时间，默认为 10 秒。</p>
+<p><strong>类型：</strong><code>int</code>、<code>float</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-retry_times">📌 <code>retry_times</code><a href="#-retry_times" class="hash-link" aria-label="-retry_times的直接链接" title="-retry_times的直接链接">​</a></h3>
+<p>此属性为网络连接失败时的重试次数，默认为<code>3</code>。</p>
+<p><strong>类型：</strong><code>int</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-retry_interval">📌 <code>retry_interval</code><a href="#-retry_interval" class="hash-link" aria-label="-retry_interval的直接链接" title="-retry_interval的直接链接">​</a></h3>
+<p>此属性为网络连接失败时的重试等待间隔秒数，默认为<code>2</code>。</p>
+<p><strong>类型：</strong><code>int</code>、<code>float</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-encoding">📌 <code>encoding</code><a href="#-encoding" class="hash-link" aria-label="-encoding的直接链接" title="-encoding的直接链接">​</a></h3>
+<p>此属性返回用户主动设置的编码格式。</p>
+<hr>
+
+<br>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-cookies-信息">✅️️ cookies 信息<a href="#️️-cookies-信息" class="hash-link" aria-label="✅️️ cookies 信息的直接链接" title="✅️️ cookies 信息的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-cookies">📌 <code>cookies()</code><a href="#-cookies" class="hash-link" aria-label="-cookies的直接链接" title="-cookies的直接链接">​</a></h3>
+<p>此方法返回 cookies 信息。</p>
+<p><strong>类型：</strong><code>dict</code>、<code>list</code></p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>all_domains</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>是否返回所有 cookies，为<code>False</code>只返回当前 url 的</td></tr><tr><td style="text-align:center"><code>all_info</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>返回的 cookies 是否包含所有信息，<code>False</code>时只包含<code>name</code>、<code>value</code>、<code>domain</code>信息</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>CookiesList</code></td><td>cookies 组成的列表</td></tr></tbody></table>
+<p><code>cookies()</code>方法返回的列表可转换为其它指定格式。</p>
+<ul>
+<li><code>cookies().as_str()</code>：<code>'name1=value1; name2=value2'</code>格式的字符串</li>
+<li><code>cookies().as_dict()</code>：<code>{name1: value1, name2: value2}</code>格式的字典</li>
+<li><code>cookies().as_json()</code>：json 格式的字符串</li>
+</ul>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class=""><span class=""><svg width="1rem" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>说明</div><div class=""><p><code>as_str()</code>和<code>as_dict()</code>都只会保留<code>'name'</code>和<code>'value'</code>字段。</p></div></div>
+<p><strong>示例：</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> SessionPage</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page </span><span class="token operator">=</span><span class="token plain"> SessionPage</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">get</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'http://www.baidu.com'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">get</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'http://gitee.com'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">for</span><span class="token plain"> i </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">in</span><span class="token plain"> page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">cookies</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">all_domains</span><span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token punctuation" style="color: rgb(248, 248, 242);">:</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">    </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">print</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">i</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<p><strong>输出：</strong></p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">{'name': 'BDORZ', 'value': '27875', 'domain': '.baidu.com'}</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">{'name': 'BEC', 'value': '1f1759dfh65j65j5j4feb0357', 'domain': 'gitee.com'}</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-内嵌对象">✅️️ 内嵌对象<a href="#️️-内嵌对象" class="hash-link" aria-label="✅️️ 内嵌对象的直接链接" title="✅️️ 内嵌对象的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-session">📌 <code>session</code><a href="#-session" class="hash-link" aria-label="-session的直接链接" title="-session的直接链接">​</a></h3>
+<p>此属性返回当前页面对象使用的<code>Session</code>对象。</p>
+<p><strong>类型：</strong><code>Session</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-response">📌 <code>response</code><a href="#-response" class="hash-link" aria-label="-response的直接链接" title="-response的直接链接">​</a></h3>
+<p>此属性为请求网页后生成的<code>Response</code>对象，本库没实现的功能可直接获取此属性调用 requests 库的原生功能。</p>
+<p><strong>类型：</strong><code>Response</code></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token comment" style="color: rgb(98, 114, 164);"># 打印连接状态</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">r </span><span class="token operator">=</span><span class="token plain"> page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">response</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">print</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">r</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">status_code</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div></div>
+      </article>
+      <dp-pager><a class="pager-link prev" slot="prev" href="SessionPage_visit.html"><span class="dir">上一页</span>🛩️ 访问网页</a><a class="pager-link next" slot="next" href="SessionPage_get_ele.html"><span class="dir">下一页</span>🛩️ 查找元素</a></dp-pager>
+    </div>
+    <dp-toc>
+<ul class="toc-list"><li class="toc-h2"><a href="#️️-页面信息">✅️️ 页面信息​</a></li><li class="toc-h3"><a href="#-url">📌 url​</a></li><li class="toc-h3"><a href="#-url_available">📌 url_available​</a></li><li class="toc-h3"><a href="#-title">📌 title​</a></li><li class="toc-h3"><a href="#-raw_data">📌 raw_data​</a></li><li class="toc-h3"><a href="#-html">📌 html​</a></li><li class="toc-h3"><a href="#-json">📌 json​</a></li><li class="toc-h3"><a href="#-user_agent">📌 user_agent​</a></li><li class="toc-h2"><a href="#️️-运行参数信息">✅️️ 运行参数信息​</a></li><li class="toc-h3"><a href="#-timeout">📌 timeout​</a></li><li class="toc-h3"><a href="#-retry_times">📌 retry_times​</a></li><li class="toc-h3"><a href="#-retry_interval">📌 retry_interval​</a></li><li class="toc-h3"><a href="#-encoding">📌 encoding​</a></li><li class="toc-h2"><a href="#️️-cookies-信息">✅️️ cookies 信息​</a></li><li class="toc-h3"><a href="#-cookies">📌 cookies()​</a></li><li class="toc-h2"><a href="#️️-内嵌对象">✅️️ 内嵌对象​</a></li><li class="toc-h3"><a href="#-session">📌 session​</a></li><li class="toc-h3"><a href="#-response">📌 response​</a></li></ul>
+    </dp-toc>
+  </div>
+</div>
+</div>
+</body>
+</html>

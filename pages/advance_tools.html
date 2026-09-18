@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>⚙️ 实用工具 - DrissionPage 文档</title>
+<meta name="generator" content="drissionpage offline doc builder">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/search-index.js"></script>
+<script src="../assets/dp-ui.js"></script>
+</head>
+<body data-prefix="../">
+<div class="layout">
+<dp-sidebar active="advance_tools"></dp-sidebar>
+<div class="main">
+  <dp-topbar><span class="crumb" slot="crumb">进阶使用 / <b>⚙️ 实用工具</b></span></dp-topbar>
+  <div class="content">
+    <div class="article">
+      <article>
+<div class="theme-doc-markdown markdown"><header><h1>⚙️ 实用工具</h1></header>
+<br>
+<p><code>DrissionPage.common</code>路径可导入几个小工具。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-make_session_ele">✅️️ <code>make_session_ele()</code><a href="#️️-make_session_ele" class="hash-link" aria-label="️️-make_session_ele的直接链接" title="️️-make_session_ele的直接链接">​</a></h2>
+<p>此方法用于获取页面对象、元素对象或 html 文本的静态版本，或以其为基准搜索元素。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>html_or_ele</code></td><td style="text-align:center"><code>str</code><br><code>ChromiumElement</code><br><code>ChromiumPage</code><br><code>ChromiumTab</code><br><code>WebPage</code><br><code>MixTab</code><br><code>ChromiumFrame</code><br><code>ShdownRoot</code></td><td style="text-align:center">必填</td><td>html文本、元素或页面对象</td></tr><tr><td style="text-align:center"><code>loc</code></td><td style="text-align:center"><code>str</code><br><code>Tuple[str, str]</code></td><td style="text-align:center"><code>None</code></td><td>定位元组或字符串，为<code>None</code>时不在下级查找，返回根元素</td></tr><tr><td style="text-align:center"><code>index</code></td><td style="text-align:center"><code>int</code></td><td style="text-align:center"><code>1</code></td><td>获取第几个元素，从<code>1</code>开始，可传入负数获取倒数第几个，<code>None</code>获取所有</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th style="text-align:center">说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>SessionElement</code></td><td style="text-align:center"><code>index</code>为数字时返回静态元素对象</td></tr><tr><td style="text-align:center"><code>SessionElementsList</code></td><td style="text-align:center"><code>index</code>为<code>None</code>时返回静态元素对象组成的列表</td></tr></tbody></table>
+<p><strong>示例：</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">common </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> make_session_ele</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">html </span><span class="token operator">=</span><span class="token plain"> </span><span class="token triple-quoted-string string" style="color: rgb(255, 121, 198);">'''</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token triple-quoted-string string" style="color: rgb(255, 121, 198);">&lt;html&gt;&lt;body&gt;&lt;div&gt;abc&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token triple-quoted-string string" style="color: rgb(255, 121, 198);">'''</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">ele </span><span class="token operator">=</span><span class="token plain"> make_session_ele</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">html</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">print</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">ele</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">text</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<p><strong>输出：</strong></p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">abc</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-get_blob">✅️️ <code>get_blob()</code><a href="#️️-get_blob" class="hash-link" aria-label="️️-get_blob的直接链接" title="️️-get_blob的直接链接">​</a></h2>
+<p>此方法用于获取指定 blob 资源内容。</p>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class=""><span class=""><svg width="1rem" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>注意</div><div class=""><ul>
+<li>如果资源在异域<code>&lt;iframe&gt;</code>元素内，必须获取该<code>&lt;iframe&gt;</code>元素对象，再把该对象传入才能获取到</li>
+<li>本方法只能用于获取静态的资源，流媒体不可以</li>
+</ul></div></div>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>page</code></td><td style="text-align:center"><code>ChromiumPage</code><br><code>ChromiumTab</code><br><code>WebPage</code><br><code>MixTab</code><br><code>ChromiumFrame</code></td><td style="text-align:center">必填</td><td>该资源所在的页面对象</td></tr><tr><td style="text-align:center"><code>url</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center">必填</td><td>blob 资源 url</td></tr><tr><td style="text-align:center"><code>as_bytes</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td>是否以<code>bytes</code>类型返回</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th style="text-align:center">说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>as_bytes</code>参数为<code>False</code>时以 base64 格式返回</td></tr><tr><td style="text-align:center"><code>bytes</code></td><td style="text-align:center"><code>as_bytes</code>参数为<code>True</code>时以字节数据返回</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-configs_to_here">✅️️ <code>configs_to_here()</code><a href="#️️-configs_to_here" class="hash-link" aria-label="️️-configs_to_here的直接链接" title="️️-configs_to_here的直接链接">​</a></h2>
+<p>此方法用于把默认 ini 文件复制到当前路径。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>save_name</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center"><code>None</code></td><td>指定文件名，为<code>None</code>则命名为<code>'dp_configs.ini'</code></td></tr></tbody></table>
+<p><strong>返回：</strong> <code>None</code></p>
+<hr>
+
+<br>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-wait_until">✅️️ <code>wait_until()</code><a href="#️️-wait_until" class="hash-link" aria-label="️️-wait_until的直接链接" title="️️-wait_until的直接链接">​</a></h2>
+<p>此方法用于等待传入的方法返回值不为假。超时则抛出<code>TimeoutError</code>。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>function</code></td><td style="text-align:center"><code>callable</code></td><td style="text-align:center">必填</td><td>要执行的方法</td></tr><tr><td style="text-align:center"><code>kwargs</code></td><td style="text-align:center"><code>dict</code></td><td style="text-align:center"><code>None</code></td><td>方法参数</td></tr><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center"><code>10</code></td><td>超时时间（秒）</td></tr></tbody></table>
+<p><strong>返回：</strong> <code>Any</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-tree">✅️️ <code>tree()</code><a href="#️️-tree" class="hash-link" aria-label="️️-tree的直接链接" title="️️-tree的直接链接">​</a></h2>
+<p>此方法用于打印页面或元素结构。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>ele_or_page</code></td><td style="text-align:center">所有页面和元素对象</td><td style="text-align:center">必填</td><td>页面或元素对象</td></tr><tr><td style="text-align:center"><code>text</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>是否打印元素文本</td></tr><tr><td style="text-align:center"><code>show_js</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>打印文本时是否打印<code>&lt;script&gt;</code>标签内容</td></tr><tr><td style="text-align:center"><code>show_css</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>False</code></td><td>打印文本时是否打印<code>&lt;style&gt;</code>标签内容</td></tr></tbody></table>
+<p><strong>返回：</strong> <code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-keys">✅️️ <code>Keys</code><a href="#️️-keys" class="hash-link" aria-label="️️-keys的直接链接" title="️️-keys的直接链接">​</a></h2>
+<p>这是快速获取特殊按键和组合键的类。</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-by">✅️️ <code>By</code><a href="#️️-by" class="hash-link" aria-label="️️-by的直接链接" title="️️-by的直接链接">​</a></h2>
+<p>与 selenium 的<code>By</code>类一致，方便项目迁移。</p></div>
+      </article>
+      <dp-pager><a class="pager-link prev" slot="prev" href="advance_packaging.html"><span class="dir">上一页</span>⚙️ 打包程序</a><a class="pager-link next" slot="next" href="advance_docking.html"><span class="dir">下一页</span>⚙️ 与其它项目对接</a></dp-pager>
+    </div>
+    <dp-toc>
+<ul class="toc-list"><li class="toc-h2"><a href="#️️-make_session_ele">✅️️ make_session_ele()​</a></li><li class="toc-h2"><a href="#️️-get_blob">✅️️ get_blob()​</a></li><li class="toc-h2"><a href="#️️-configs_to_here">✅️️ configs_to_here()​</a></li><li class="toc-h2"><a href="#️️-wait_until">✅️️ wait_until()​</a></li><li class="toc-h2"><a href="#️️-tree">✅️️ tree()​</a></li><li class="toc-h2"><a href="#️️-keys">✅️️ Keys​</a></li><li class="toc-h2"><a href="#️️-by">✅️️ By​</a></li></ul>
+    </dp-toc>
+  </div>
+</div>
+</div>
+</body>
+</html>

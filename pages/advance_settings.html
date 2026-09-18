@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>⚙️ 全局设置 - DrissionPage 文档</title>
+<meta name="generator" content="drissionpage offline doc builder">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/search-index.js"></script>
+<script src="../assets/dp-ui.js"></script>
+</head>
+<body data-prefix="../">
+<div class="layout">
+<dp-sidebar active="advance_settings"></dp-sidebar>
+<div class="main">
+  <dp-topbar><span class="crumb" slot="crumb">进阶使用 / <b>⚙️ 全局设置</b></span></dp-topbar>
+  <div class="content">
+    <div class="article">
+      <article>
+<div class="theme-doc-markdown markdown"><header><h1>⚙️ 全局设置</h1></header>
+<br>
+<p>有一些运行时的全局设置，可以控制程序某些行为。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-使用方式">✅️️ 使用方式<a href="#️️-使用方式" class="hash-link" aria-label="✅️️ 使用方式的直接链接" title="✅️️ 使用方式的直接链接">​</a></h2>
+<p>全局设置在<code>DrissionPage.common</code>路径中。</p>
+<p>以<code>set_****()</code>的方式对属性进行设置。</p>
+<p>设置方法会返回<code>Settings</code>类本身，所以支持链式操作。</p>
+<p>使用方法：</p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">common </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> Settings</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">Settings</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">set_raise_when_wait_failed</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token boolean">True</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain">  </span><span class="token comment" style="color: rgb(98, 114, 164);"># 设置等待失败时抛出异常</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">Settings</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">set_language</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'en'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain">  </span><span class="token comment" style="color: rgb(98, 114, 164);"># 设置报错使用英文</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">Settings</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">set_raise_when_wait_failed</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token boolean">True</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">set_auto_handle_alert</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token boolean">True</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain">  </span><span class="token comment" style="color: rgb(98, 114, 164);"># 链式操作</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-设置项">✅️️ 设置项<a href="#️️-设置项" class="hash-link" aria-label="✅️️ 设置项的直接链接" title="✅️️ 设置项的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-set_raise_when_ele_not_found">📌 <code>set_raise_when_ele_not_found()</code><a href="#-set_raise_when_ele_not_found" class="hash-link" aria-label="-set_raise_when_ele_not_found的直接链接" title="-set_raise_when_ele_not_found的直接链接">​</a></h3>
+<p>设置找不到元素时，是否抛出异常。初始为<code>False</code>。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>on_off</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td><code>bool</code>表示开或关</td></tr></tbody></table>
+<p><strong>返回：</strong><code>Settings</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-set_raise_when_click_failed">📌 <code>set_raise_when_click_failed()</code><a href="#-set_raise_when_click_failed" class="hash-link" aria-label="-set_raise_when_click_failed的直接链接" title="-set_raise_when_click_failed的直接链接">​</a></h3>
+<p>设置点击失败时，是否抛出异常。初始为<code>False</code>。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>on_off</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td><code>bool</code>表示开或关</td></tr></tbody></table>
+<p><strong>返回：</strong><code>Settings</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-set_raise_when_wait_failed">📌 <code>set_raise_when_wait_failed()</code><a href="#-set_raise_when_wait_failed" class="hash-link" aria-label="-set_raise_when_wait_failed的直接链接" title="-set_raise_when_wait_failed的直接链接">​</a></h3>
+<p>设置等待失败时，是否抛出异常。初始为<code>False</code>。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>on_off</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td><code>bool</code>表示开或关</td></tr></tbody></table>
+<p><strong>返回：</strong><code>Settings</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-set_singleton_tab_obj">📌 <code>set_singleton_tab_obj()</code><a href="#-set_singleton_tab_obj" class="hash-link" aria-label="-set_singleton_tab_obj的直接链接" title="-set_singleton_tab_obj的直接链接">​</a></h3>
+<p>设置 Tab 对象是否使用单例模式。初始为<code>True</code>。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>on_off</code></td><td style="text-align:center"><code>bool</code></td><td style="text-align:center"><code>True</code></td><td><code>bool</code>表示开或关</td></tr></tbody></table>
+<p><strong>返回：</strong><code>Settings</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-set_cdp_timeout">📌 <code>set_cdp_timeout()</code><a href="#-set_cdp_timeout" class="hash-link" aria-label="-set_cdp_timeout的直接链接" title="-set_cdp_timeout的直接链接">​</a></h3>
+<p>设置 cdp 执行超时（秒），初始为<code>30</code>。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>second</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center">必填</td><td>秒数</td></tr></tbody></table>
+<p><strong>返回：</strong><code>Settings</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-set_browser_connect_timeout">📌 <code>set_browser_connect_timeout()</code><a href="#-set_browser_connect_timeout" class="hash-link" aria-label="-set_browser_connect_timeout的直接链接" title="-set_browser_connect_timeout的直接链接">​</a></h3>
+<p>设置连接浏览器的超时时间（秒）。初始为<code>30</code>。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>second</code></td><td style="text-align:center"><code>float</code></td><td style="text-align:center">必填</td><td>秒数</td></tr></tbody></table>
+<p><strong>返回：</strong><code>Settings</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-set_auto_handle_alert">📌 <code>set_auto_handle_alert()</code><a href="#-set_auto_handle_alert" class="hash-link" aria-label="-set_auto_handle_alert的直接链接" title="-set_auto_handle_alert的直接链接">​</a></h3>
+<p>全局的自动处理弹出设置。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>accept</code></td><td style="text-align:center"><code>bool</code><br><code>None</code></td><td style="text-align:center"><code>True</code></td><td>为<code>None</code>时不自动处理，为<code>True</code>时自动接受，为<code>False</code>时自动取消。</td></tr></tbody></table>
+<p><strong>返回：</strong><code>Settings</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-set_language">📌 <code>set_language()</code><a href="#-set_language" class="hash-link" aria-label="-set_language的直接链接" title="-set_language的直接链接">​</a></h3>
+<p>设置报错和提示信息语言。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>code</code></td><td style="text-align:center"><code>str</code></td><td style="text-align:center">必填</td><td>可选<code>'zh_cn'</code>、<code>'en'</code></td></tr></tbody></table>
+<p><strong>返回：</strong><code>Settings</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-set_suffixes_list">📌 <code>set_suffixes_list()</code><a href="#-set_suffixes_list" class="hash-link" aria-label="-set_suffixes_list的直接链接" title="-set_suffixes_list的直接链接">​</a></h3>
+<p>设置用于解析域名后缀的本地文件路径。</p>
+<p>默认会连网获取，离线环境下使用内置文件，可对此属性赋值手动指定路径。</p>
+<p>通常离线环境下打包使用时需要设置。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>path</code></td><td style="text-align:center"><code>str</code><br><code>Path</code></td><td style="text-align:center">必填</td><td>文件路径</td></tr></tbody></table>
+<p><strong>返回：</strong><code>Settings</code></p>
+<hr>
+
+<br>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️️-示例">✅️️ 示例<a href="#️️-示例" class="hash-link" aria-label="✅️️ 示例的直接链接" title="✅️️ 示例的直接链接">​</a></h2>
+<p>此示例设置找不到元素时立刻抛出异常（如不设置返回<code>NoneElement</code>）。</p>
+<p>可直接执行查看效果。</p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> SessionPage</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">common </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> Settings</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">Settings</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">set_raise_when_ele_not_found</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token boolean">True</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page </span><span class="token operator">=</span><span class="token plain"> SessionPage</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">get</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'https://www.baidu.com'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">ele </span><span class="token operator">=</span><span class="token plain"> page</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'#abcd'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<p><strong>输出：</strong></p>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">...前面省略...</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">DrissionPage.errors.ElementNotFoundError: </span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">没有找到元素。</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">method: ele()</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">args: {'locator': '#abcd'}</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div></div>
+      </article>
+      <dp-pager><a class="pager-link prev" slot="prev" href="advance_ini.html"><span class="dir">上一页</span>⚙️ 配置文件的使用</a><a class="pager-link next" slot="next" href="advance_commands.html"><span class="dir">下一页</span>⚙️ 命令行的使用</a></dp-pager>
+    </div>
+    <dp-toc>
+<ul class="toc-list"><li class="toc-h2"><a href="#️️-使用方式">✅️️ 使用方式​</a></li><li class="toc-h2"><a href="#️️-设置项">✅️️ 设置项​</a></li><li class="toc-h3"><a href="#-set_raise_when_ele_not_found">📌 set_raise_when_ele_not_found()​</a></li><li class="toc-h3"><a href="#-set_raise_when_click_failed">📌 set_raise_when_click_failed()​</a></li><li class="toc-h3"><a href="#-set_raise_when_wait_failed">📌 set_raise_when_wait_failed()​</a></li><li class="toc-h3"><a href="#-set_singleton_tab_obj">📌 set_singleton_tab_obj()​</a></li><li class="toc-h3"><a href="#-set_cdp_timeout">📌 set_cdp_timeout()​</a></li><li class="toc-h3"><a href="#-set_browser_connect_timeout">📌 set_browser_connect_timeout()​</a></li><li class="toc-h3"><a href="#-set_auto_handle_alert">📌 set_auto_handle_alert()​</a></li><li class="toc-h3"><a href="#-set_language">📌 set_language()​</a></li><li class="toc-h3"><a href="#-set_suffixes_list">📌 set_suffixes_list()​</a></li><li class="toc-h2"><a href="#️️-示例">✅️️ 示例​</a></li></ul>
+    </dp-toc>
+  </div>
+</div>
+</div>
+</body>
+</html>

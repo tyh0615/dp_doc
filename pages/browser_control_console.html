@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🛰️ 获取控制台信息 - DrissionPage 文档</title>
+<meta name="generator" content="drissionpage offline doc builder">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/search-index.js"></script>
+<script src="../assets/dp-ui.js"></script>
+</head>
+<body data-prefix="../">
+<div class="layout">
+<dp-sidebar active="browser_control_console"></dp-sidebar>
+<div class="main">
+  <dp-topbar><span class="crumb" slot="crumb">浏览器控制 / <b>🛰️ 获取控制台信息</b></span></dp-topbar>
+  <div class="content">
+    <div class="article">
+      <article>
+<div class="theme-doc-markdown markdown"><header><h1>🛰️ 获取控制台信息</h1></header>
+<br>
+<p>获取控制台信息的逻辑和监听网络数据差不多，是通过监听控制台数据实现的。</p>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class=""><span class=""><svg width="1rem" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>注意</div><div class=""><p>不是所有显示在控制台的信息都能获取，需要用<code>console.log()</code>等方法输出到控制台的才能获取。</p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-示例">✅️ 示例<a href="#️-示例" class="hash-link" aria-label="✅️ 示例的直接链接" title="✅️ 示例的直接链接">​</a></h2>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color: #F8F8F2; --prism-background-color: #282A36;"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color: rgb(248, 248, 242); background-color: rgb(40, 42, 54);"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">from</span><span class="token plain"> DrissionPage </span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">import</span><span class="token plain"> Chromium</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain" style="display: inline-block;"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">tab </span><span class="token operator">=</span><span class="token plain"> Chromium</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">latest_tab</span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">tab</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">console</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">start</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">tab</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">run_js</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token string" style="color: rgb(255, 121, 198);">'console.log("DrissionPage");'</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain">data </span><span class="token operator">=</span><span class="token plain"> tab</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">console</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">wait</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain"></span><br></span><span class="token-line" style="color: rgb(248, 248, 242);"><span class="token plain"></span><span class="token keyword" style="color: rgb(189, 147, 249); font-style: italic;">print</span><span class="token punctuation" style="color: rgb(248, 248, 242);">(</span><span class="token plain">data</span><span class="token punctuation" style="color: rgb(248, 248, 242);">.</span><span class="token plain">text</span><span class="token punctuation" style="color: rgb(248, 248, 242);">)</span><span class="token plain">  </span><span class="token comment" style="color: rgb(98, 114, 164);"># 输出：DrissionPage</span><br></span></code></pre><div class="buttonGroup__atx"></div></div></div>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-启动和停止">✅️ 启动和停止<a href="#️-启动和停止" class="hash-link" aria-label="✅️ 启动和停止的直接链接" title="✅️ 启动和停止的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-consolestart">📌 <code>console.start()</code><a href="#-consolestart" class="hash-link" aria-label="-consolestart的直接链接" title="-consolestart的直接链接">​</a></h3>
+<p>此方法用于启动控制台信息监听。</p>
+<p><strong>参数：</strong> 无</p>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-consolestop">📌 <code>console.stop()</code><a href="#-consolestop" class="hash-link" aria-label="-consolestop的直接链接" title="-consolestop的直接链��接">​</a></h3>
+<p>此方法用于停止监听，清空已监听到的信息列表。</p>
+<p><strong>参数：</strong> 无</p>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+
+<br>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-获取信息">✅️ 获取信息<a href="#️-获取信息" class="hash-link" aria-label="✅️ 获取信息的直接链接" title="✅️ 获取信息的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-consolewait">📌 <code>console.wait()</code><a href="#-consolewait" class="hash-link" aria-label="-consolewait的直接链接" title="-consolewait的直接链接">​</a></h3>
+<p>此方法用于等待一条控制台信息。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code><br><code>None</code></td><td style="text-align:center"><code>None</code></td><td>超时时间（秒），为<code>None</code>无限等待</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>ConsoleData</code></td><td>控制台信息数据包对象</td></tr><tr><td style="text-align:center"><code>False</code></td><td>等待超时时</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-consolesteps">📌 <code>console.steps()</code><a href="#-consolesteps" class="hash-link" aria-label="-consolesteps的直接链接" title="-consolesteps的直接链接">​</a></h3>
+<p>此方法返回一个可迭代对象，用于<code>for</code>循环，每次循环可从中获取到的信息。</p>
+<p>可实现实时获取并返回数据包。</p>
+<p>如果<code>timeout</code>超时，会中断循环。</p>
+<table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">类型</th><th style="text-align:center">默认值</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>timeout</code></td><td style="text-align:center"><code>float</code><br><code>None</code></td><td style="text-align:center"><code>None</code></td><td>每个信息等待时间（秒），为<code>None</code>表示无限等待</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>ConsoleData</code></td><td>控制台信息数据包对象</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-consolemessages">📌 <code>console.messages</code><a href="#-consolemessages" class="hash-link" aria-label="-consolemessages的直接链接" title="-consolemessages的直接链接">​</a></h3>
+<p>此属性以<code>list</code>方式返回获取到的信息，返回后会清空列表。</p>
+<table><thead><tr><th style="text-align:center">返回类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>List[ConsoleData]</code></td><td>控制台信息对象组成的列表</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-其它">✅️ 其它<a href="#️-其它" class="hash-link" aria-label="✅️ 其它的直接链接" title="✅️ 其它的直接链接">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-consolelistening">📌 <code>console.listening</code><a href="#-consolelistening" class="hash-link" aria-label="-consolelistening的直接链接" title="-consolelistening的直接链接">​</a></h3>
+<p>此属性返回监听是否进行中。</p>
+<p><strong>返回：</strong> <code>bool</code></p>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-consoleclear">📌 <code>console.clear()</code><a href="#-consoleclear" class="hash-link" aria-label="-consoleclear的直接链接" title="-consoleclear的直接链接">​</a></h3>
+<p>此方法用于清空已获取但未返回的信息。</p>
+<p><strong>参数：</strong> 无</p>
+<p><strong>返回：</strong><code>None</code></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-consoledata对象">✅️ <code>ConsoleData</code>对象<a href="#️-consoledata对象" class="hash-link" aria-label="️-consoledata对象的直接链接" title="️-consoledata对象的直接链接">​</a></h2>
+<p><code>ConsoleData</code>对象是获取到的数据包结果对象，包含了数据包各种信息。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-对象属性">📌 <code>对象属性</code><a href="#-对象属性" class="hash-link" aria-label="-对象属性的直接链接" title="-对象属性的直接链接">​</a></h3>
+<table><thead><tr><th style="text-align:center">属性名称</th><th style="text-align:center">数据类型</th><th>说明</th></tr></thead><tbody><tr><td style="text-align:center"><code>source</code></td><td style="text-align:center"><code>str</code></td><td>来源</td></tr><tr><td style="text-align:center"><code>level</code></td><td style="text-align:center"><code>str</code></td><td>类型</td></tr><tr><td style="text-align:center"><code>text</code></td><td style="text-align:center"><code>str</code></td><td>内容文本</td></tr><tr><td style="text-align:center"><code>body</code></td><td style="text-align:center"><code>Any</code></td><td>把<code>text</code>进行 json 解析</td></tr><tr><td style="text-align:center"><code>url</code></td><td style="text-align:center"><code>str</code></td><td>网址</td></tr><tr><td style="text-align:center"><code>line</code></td><td style="text-align:center"><code>str</code></td><td>行号</td></tr><tr><td style="text-align:center"><code>column</code></td><td style="text-align:center"><code>str</code></td><td>列号</td></tr></tbody></table></div>
+      </article>
+      <dp-pager><a class="pager-link prev" slot="prev" href="browser_control_listener.html"><span class="dir">上一页</span>🛰️ 监听网络数据</a><a class="pager-link next" slot="next" href="browser_control_screen.html"><span class="dir">下一页</span>🛰️ 截图和录像</a></dp-pager>
+    </div>
+    <dp-toc>
+<ul class="toc-list"><li class="toc-h2"><a href="#️-示例">✅️ 示例​</a></li><li class="toc-h2"><a href="#️-启动和停止">✅️ 启动和停止​</a></li><li class="toc-h3"><a href="#-consolestart">📌 console.start()​</a></li><li class="toc-h3"><a href="#-consolestop">📌 console.stop()​</a></li><li class="toc-h2"><a href="#️-获取信息">✅️ 获取信息​</a></li><li class="toc-h3"><a href="#-consolewait">📌 console.wait()​</a></li><li class="toc-h3"><a href="#-consolesteps">📌 console.steps()​</a></li><li class="toc-h3"><a href="#-consolemessages">📌 console.messages​</a></li><li class="toc-h2"><a href="#️-其它">✅️ 其它​</a></li><li class="toc-h3"><a href="#-consolelistening">📌 console.listening​</a></li><li class="toc-h3"><a href="#-consoleclear">📌 console.clear()​</a></li><li class="toc-h2"><a href="#️-consoledata对象">✅️ ConsoleData对象​</a></li><li class="toc-h3"><a href="#-对象属性">📌 对象属性​</a></li></ul>
+    </dp-toc>
+  </div>
+</div>
+</div>
+</body>
+</html>
