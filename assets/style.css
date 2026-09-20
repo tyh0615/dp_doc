@@ -466,3 +466,65 @@ mark {
         padding: 18px 16px 50px
     }
 }
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) inset;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    -webkit-box-shadow: none !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #999999 !important;
+    background-image: none !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #DD5E89 !important;
+}
+
+::selection {
+    background: #d3d3d3;
+    color: #555;
+}
+
+::-moz-selection {
+    background: #d3d3d3;
+    color: #555;
+}
+
+::-webkit-selection {
+    background: #d3d3d3;
+    color: #555;
+}
+
+details {
+    border: 1px solid #aaaaaa;
+    border-radius: 4px;
+    padding: 0.5em 0.5em 0;
+    margin-bottom: 1em;
+}
+
+summary {
+    font-weight: bold;
+    margin: -0.5em -0.5em 0;
+    padding: 0.5em;
+}
+
+details[open] {
+    padding: 0.5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaaaaa;
+    margin-bottom: 0.5em;
+}
