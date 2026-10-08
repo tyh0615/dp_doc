@@ -84,7 +84,7 @@
 /* -------------------------------------------------------- dp-sidebar -- */
 :host(dp-sidebar){
   display:block;flex:0 0 290px;position:sticky;top:0;height:100vh;
-  overflow-y:auto;border-right:1px solid var(--line);background:var(--bg-soft)
+  overflow-y:auto;overflow-x: hidden;border-right:1px solid var(--line);background:var(--bg-soft)
 }
 .sidebar{padding:14px 12px 40px}
 .brand{font-weight:700;font-size:15px;padding:6px 8px 2px;color:var(--fg)}
